@@ -1,0 +1,106 @@
+﻿<Window x:Class="RestApiDoc.Views.CreateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestApiDoc.Views" 
+        xmlns:controls="clr-namespace:RestApiDoc.Controls"
+        mc:Ignorable="d"
+        Title="CreateWindow" Height="560" Width="900" Background="#2b373d">
+    <Window.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Control.Foreground" Value="#fff" />
+            <Setter Property="Control.BorderBrush" Value="#fff" />
+            <Setter Property="Control.Margin" Value="10" />
+            <Setter Property="Control.FontSize" Value="15" />
+        </Style>
+        <Style TargetType="RichTextBox">
+            <Setter Property="Control.Margin" Value="5" />
+            <Setter Property="Control.BorderThickness" Value="1" />
+            <Setter Property="Control.Background" Value="Transparent" />
+            <Setter Property="Control.BorderBrush" Value="#fff" />
+            <Setter Property="Control.Foreground" Value="#fff" />
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Control.Height" Value="26" />
+            <Setter Property="Control.FontSize" Value="12" />
+            <Setter Property="Control.Margin" Value="0 0 10 0" />
+            <Setter Property="Control.Padding" Value="10 0" />
+            <Setter Property="Control.BorderThickness" Value="0" />
+            <Setter Property="Control.Background" Value="#00b4d8" />
+            <Setter Property="Control.Foreground" Value="#fff" />
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="Control.Foreground" Value="#fff" />
+            <Setter Property="Control.BorderBrush" Value="#fff" />
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="StackPanelMain" Grid.ColumnSpan="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Главы" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ListBox x:Name="chaptersList" ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}" Grid.Column="0" Grid.RowSpan="2" MinWidth="250">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBox x:Name="chapterName" Grid.Column="1"/>
+                <Button Content="Добавить" Grid.Column="3" Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=chapterName, Path=Text}" />
+
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SelectedChapter.Name}"/>
+                <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+                    <Button Content="Обновить" Command="{Binding EditCommand}" />
+                    <Button Content="Удалить" Command="{Binding DeleteCommand}" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Разделы" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="250"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ListBox x:Name="partitionsList" ItemsSource="{Binding SelectedChapter.Partitions}" SelectedItem="{Binding SelectedPartition}" Grid.RowSpan="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnPartition" Click="BtnPartition_Click">
+                                <TextBlock Text="{Binding Name}"/>
+                            </Button>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBox x:Name="partitionName" Grid.Row="0" Grid.Column="1"/>
+                <controls:RichTextBoxEditor x:Name="partitionText" Grid.Row="1" Grid.Column="1"/>
+                <Button Content="Добавить" 
+                            Margin="5"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Name="BtnCreatePartition" 
+                            Click="BtnCreatePartition_Click"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
