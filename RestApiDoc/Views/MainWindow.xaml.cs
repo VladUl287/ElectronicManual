@@ -10,11 +10,17 @@ namespace RestApiDoc
     public partial class MainWindow : Window
     {
         private readonly ChapterViewModel chapterViewModel;
+        private readonly LoginViewModel loginViewModel;
+        private readonly RegisterViewModel registerViewModel;
+        private readonly UserViewModel userViewModel;
 
-        public MainWindow(ChapterViewModel chapterViewModel)
+        public MainWindow(ChapterViewModel chapterViewModel, LoginViewModel loginViewModel, RegisterViewModel registerViewModel, UserViewModel userViewModel)
         {
             InitializeComponent();
             this.chapterViewModel = chapterViewModel;
+            this.loginViewModel = loginViewModel;
+            this.registerViewModel = registerViewModel;
+            this.userViewModel = userViewModel;
             Initialize();
 
         }
@@ -42,7 +48,8 @@ namespace RestApiDoc
 
         private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
         {
-            var adminWindow = new CreateWindow(chapterViewModel);
+            var adminWindow = new AdminWindow(chapterViewModel, userViewModel);
+            //var adminWindow = new AuthWindow(userViewModel, registerViewModel);
             adminWindow.ShowDialog();
         }
     }

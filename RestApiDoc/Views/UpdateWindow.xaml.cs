@@ -9,6 +9,7 @@ namespace RestApiDoc.Views
         {
             InitializeComponent();
             DataContext = chapterViewModel;
+            partitionName.Text = chapterViewModel.SelectedPartition.Name;
             partitionText.SetRtf(chapterViewModel.SelectedPartition.Text);
         }
     }

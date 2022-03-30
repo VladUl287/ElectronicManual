@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\App.xaml
-6-1393107150
+8-1793878095
 
-18-6792659
-216-1136912402
-Controls\RichTextBoxEditor.xaml;Controls\UserControlMenuItem.xaml;Controls\UserControlPartitionText.xaml;Views\CreateWindow.xaml;Views\MainWindow.xaml;Views\UpdateWindow.xaml;
+24-67399833
+217986593266
+Controls\RichTextBoxEditor.xaml;Controls\UserControlMenuItem.xaml;Controls\UserControlPartitionText.xaml;Views\AdminWindow.xaml;Views\AuthWindow.xaml;Views\InteractiveWindow.xaml;Views\MainWindow.xaml;Views\UpdateWindow.xaml;
 
 False
 

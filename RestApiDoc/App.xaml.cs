@@ -26,6 +26,9 @@ namespace RestApiDoc
 
             services.AddSingleton<MainWindow>();
             services.AddSingleton<ChapterViewModel>();
+            services.AddSingleton<LoginViewModel>();
+            services.AddSingleton<RegisterViewModel>();
+            services.AddSingleton<UserViewModel>();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)

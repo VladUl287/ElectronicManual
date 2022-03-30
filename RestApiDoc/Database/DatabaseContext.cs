@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestApiDoc.Models;
+using RestApiDoc.Database.Models;
 
 namespace RestApiDoc.Database
 {
@@ -12,6 +12,7 @@ namespace RestApiDoc.Database
 
         public DbSet<Chapter> Chapters { get; init; }
         public DbSet<Partition> Partitions { get; init; }
+        public DbSet<User> Users { get; init; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +39,39 @@ namespace RestApiDoc.Database
                     new Partition { Id = 3, Name = "Partition 3", Text = "24324235", ChapterId = 2 },
                     new Partition { Id = 4, Name = "Partition 4", Text = "erfeger", ChapterId = 2 },
                     new Partition { Id = 5, Name = "Partition 5", Text = "ergregger", ChapterId = 2 },
+                });
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.IsAdmin)
+                    .IsRequired()
+                    .HasDefaultValue(false);
+
+                entity.HasData(new User[]
+                {
+                    new User
+                    {
+                        Id = 1,
+                        Email = "ulyanovskiy.01@mail.ru",
+                        Password = "password"
+                    },
+                    new User
+                    {
+                        Id = 2,
+                        Email = "ulyanovskiy.2001@mail.ru",
+                        Password = "password"
+                    }
                 });
             });
         }

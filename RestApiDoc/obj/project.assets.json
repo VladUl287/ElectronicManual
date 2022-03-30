@@ -393,6 +393,15 @@
           }
         }
       },
+      "Prism.Core/8.1.97": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Prism.dll": {}
+        }
+      },
       "System.Collections.Immutable/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -1354,6 +1363,32 @@
         "version.txt"
       ]
     },
+    "Prism.Core/8.1.97": {
+      "sha512": "EP5zrvWddw3eSq25Y7hHnDYdmLZEC2Z/gMrvmHzUuLbitmA1UaS7wQUlSwNr9Km8lzJNCvytFnaGBEFukHgoHg==",
+      "type": "package",
+      "path": "prism.core/8.1.97",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net461/Prism.dll",
+        "lib/net461/Prism.pdb",
+        "lib/net461/Prism.xml",
+        "lib/net47/Prism.dll",
+        "lib/net47/Prism.pdb",
+        "lib/net47/Prism.xml",
+        "lib/net5.0/Prism.dll",
+        "lib/net5.0/Prism.pdb",
+        "lib/net5.0/Prism.xml",
+        "lib/netstandard2.0/Prism.dll",
+        "lib/netstandard2.0/Prism.pdb",
+        "lib/netstandard2.0/Prism.xml",
+        "prism-logo.png",
+        "prism.core.8.1.97.nupkg.sha512",
+        "prism.core.nuspec",
+        "readme.txt"
+      ]
+    },
     "System.Collections.Immutable/6.0.0": {
       "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
       "type": "package",
@@ -1843,7 +1878,8 @@
     "net6.0-windows7.0": [
       "MaterialDesignThemes >= 4.4.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.3",
-      "Microsoft.Extensions.DependencyInjection >= 6.0.0"
+      "Microsoft.Extensions.DependencyInjection >= 6.0.0",
+      "Prism.Core >= 8.1.97"
     ]
   },
   "packageFolders": {
@@ -1896,6 +1932,10 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "Prism.Core": {
+            "target": "Package",
+            "version": "[8.1.97, )"
           }
         },
         "imports": [
