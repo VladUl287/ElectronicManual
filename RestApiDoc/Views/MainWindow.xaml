@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestApiDoc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#2b373d">
+        Title="MainWindow" Height="500" Width="800" Background="#2b373d">
     <Window.Resources>
-       
+        <Style TargetType="RichTextBox"></Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+
+        <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="Menu" Margin="10"/>
         </ScrollViewer>
-        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+        <DockPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
             <Button x:Name="BtnAdminWindow" Click="BtnAdminWindow_Click">Создать</Button>
-        </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

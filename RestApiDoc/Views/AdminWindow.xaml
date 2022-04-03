@@ -3,11 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestApiDoc.Views" 
-        xmlns:controls="clr-namespace:RestApiDoc.Controls"
+        xmlns:controls="clr-namespace:RestApiDoc.Controls" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ChapterViewModel}"
         mc:Ignorable="d"
         Title="CreateWindow" Height="560" Width="900" Background="#2b373d">
     <Window.Resources>
+        <Style TargetType="TabControl">
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#fff" />
+        </Style>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="Control.Foreground" Value="#fff" />
             <Setter Property="Control.BorderBrush" Value="#fff" />
@@ -36,13 +40,13 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <TabControl>
+        <TabControl BorderThickness="0">
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Margin="3">Записи</TextBlock>
+                    <TextBlock>Записи</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Grid x:Name="StackPanelMain" Grid.ColumnSpan="2">
+                    <Grid x:Name="StackPanelMain" Grid.ColumnSpan="2" Background="#2b373d">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition></RowDefinition>
@@ -54,23 +58,28 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="0.6*" />
+                                    <ColumnDefinition/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <ListBox x:Name="chaptersList" ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}" Grid.Column="0" Grid.RowSpan="2" MinWidth="250">
+                                <ListBox x:Name="chaptersList" ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}" 
+                                         Grid.Column="0" Grid.RowSpan="2" MinWidth="250" MaxHeight="100">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Name}" Foreground="#fff"/>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
 
-                                <TextBox x:Name="chapterName" Grid.Column="1"/>
-                                <Button Content="Добавить" Grid.Column="3" Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=chapterName, Path=Text}" />
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBox x:Name="chapterName" Margin="10,10,10,10"/>
+                                </StackPanel>
+                                <Button Content="Добавить" Grid.Column="2" Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=chapterName, Path=Text}" Margin="0,11,10,12" />
 
-                                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SelectedChapter.Name}"/>
+                                <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+                                    <TextBox Text="{Binding SelectedChapter.Name}" Margin="10,10,10,10" />
+                                </StackPanel>
                                 <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
                                     <Button Content="Обновить" Command="{Binding EditCommand}" />
                                     <Button Content="Удалить" Command="{Binding DeleteCommand}" />
@@ -89,6 +98,8 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
+
+
                                 <ListBox x:Name="partitionsList" ItemsSource="{Binding SelectedChapter.Partitions}" SelectedItem="{Binding SelectedPartition}" Grid.RowSpan="3">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
@@ -103,11 +114,11 @@
                                 <TextBox x:Name="partitionName" Grid.Row="0" Grid.Column="1"/>
                                 <controls:RichTextBoxEditor x:Name="partitionText" Grid.Row="1" Grid.Column="1"/>
                                 <Button Content="Добавить" 
-                            Margin="5"
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            Name="BtnCreatePartition" 
-                            Click="BtnCreatePartition_Click"/>
+                                        Margin="5"
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Name="BtnCreatePartition" 
+                                        Click="BtnCreatePartition_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -115,47 +126,47 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Margin="3">Пользователи</TextBlock>
+                    <TextBlock>Пользователи</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Grid>
-                        <DataGrid x:Name="UsersList" ItemsSource="{Binding Users}" AutoGenerateColumns="False">
+                    <Grid x:Name="UsersListParent" Background="#2b373d">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <DataGrid x:Name="UsersList"
+                                  ItemsSource="{Binding Users}" 
+                                  Margin="10"
+                                  Background="LightGray"
+                                  CanUserAddRows="False" 
+                                  CanUserDeleteRows="False" 
+                                  AutoGenerateColumns="False">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Код" Binding="{Binding Id}" IsReadOnly="True"/>
-                                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"/>
-                                <DataGridCheckBoxColumn Header="Админ" Binding="{Binding IsAdmin}"/>
+                                <DataGridTextColumn Header="Код" Binding="{Binding Id, UpdateSourceTrigger=LostFocus}" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Email" Binding="{Binding Email, UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridTextColumn Header="Пароль" Binding="{Binding Password, UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridCheckBoxColumn Header="Админ" Binding="{Binding IsAdmin, UpdateSourceTrigger=LostFocus}"/>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <!--<Button Content="Удалить" Click="DeleteBtn_Click"></Button>-->
-                                            <Button Content="Удалить" Command="{Binding Parent.DeleteCommand}"></Button>
+                                            <Button Content="Удалить" 
+                                                    Command="{Binding Path=DataContext.DeleteCommand,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                    CommandParameter="{Binding SelectedItem, ElementName=UsersList}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Обновить"></Button>
+                                            <Button Content="Обновить" 
+                                                    Command="{Binding Path=DataContext.UpdateCommand,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                    CommandParameter="{Binding SelectedItem, ElementName=UsersList}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <!--<ListBox x:Name="UsersList" ItemsSource="{Binding Users}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{Binding Email}"></Label>
-                                        <Label Content="{Binding Password}"></Label>
-                                        <Label Content="{Binding IsAdmin}"></Label>
-                                        <Button Content="Удалить"></Button>
-                                        <Button Content="Обновить"></Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                        <Button Content="Добавить"></Button>-->
+                        <Button Content="Добавить" Grid.Row="1" Margin="10" Command="{Binding CreateCommand}" />
                     </Grid>
                 </TabItem.Content>
             </TabItem>

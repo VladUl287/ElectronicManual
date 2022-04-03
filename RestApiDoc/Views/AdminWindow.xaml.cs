@@ -13,6 +13,7 @@ namespace RestApiDoc.Views
         {
             InitializeComponent();
             DataContext = chapterViewModel;
+            UsersListParent.DataContext = userViewModel;
             UsersList.DataContext = userViewModel;
             this.chapterViewModel = chapterViewModel;
         }
@@ -31,17 +32,10 @@ namespace RestApiDoc.Views
 
         private void BtnPartition_Click(object sender, RoutedEventArgs e)
         {
+            var selectedItem = (ListBoxItem)partitionsList.ItemContainerGenerator.ContainerFromItem(((Button)sender).DataContext);
+            selectedItem.IsSelected = true;
             var updateWindow = new UpdateWindow(chapterViewModel);
             updateWindow.ShowDialog();
-        }
-
-        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //var user = ((Button)sender).DataContext as User;
-            //if (user is not null)
-            //{
-            //    user.DeleteCommand.Execute(user);
-            //}
         }
     }
 }

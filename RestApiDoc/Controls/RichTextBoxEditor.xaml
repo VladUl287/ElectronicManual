@@ -7,25 +7,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="Button"></Style>
+        <Style TargetType="ComboBox"></Style>
     </UserControl.Resources>
     <Grid>
         <DockPanel>
             <ToolBar DockPanel.Dock="Top">
                 <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
                     <Image Source="/RestApiDoc;component/Data/bold.png" Width="16" Height="16" />
-                    <!--<ToggleButton.Style>
-                        <Style TargetType="{x:Type ToggleButton}"></Style>
-                    </ToggleButton.Style>-->
                 </ToggleButton>
                 <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
-                    <Image Source="/Data/bold.png" Width="16" Height="16" />
+                    <Image Source="/Data/italics.png" Width="16" Height="16" />
                 </ToggleButton>
                 <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
-                    <Image Source="/Data/bold.png" Width="16" Height="16" />
+                    <Image Source="/Data/underline.png" Width="16" Height="16" />
                 </ToggleButton>
                 <Separator />
-                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="CmbFontFamily_SelectionChanged" />
+                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="CmbFontFamily_SelectionChanged">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ComboBoxItem}">
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="Foreground" Value="Black" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
                 <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="CmbFontSize_TextChanged" />
             </ToolBar>
             <RichTextBox Name="rtbEditor" SelectionChanged="RtbEditor_SelectionChanged" TextChanged="RtbEditor_TextChanged" />

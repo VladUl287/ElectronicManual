@@ -12,7 +12,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="partitionName" Grid.Row="0" Grid.Column="1"/>
+        <TextBox x:Name="partitionName" Grid.Row="0" Grid.Column="1" Margin="5 5"/>
         <controls:RichTextBoxEditor x:Name="partitionText" Grid.Row="1" Grid.Column="1"/>
         <Button Content="Обновить" 
                 Margin="5"

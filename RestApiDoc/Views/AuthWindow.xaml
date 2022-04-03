@@ -5,10 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestApiDoc.Views"
         mc:Ignorable="d"
-        Title="AuthWindow" Height="450" Width="800">
+        Title="AuthWindow" Height="450" Width="800" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="Margin" Value="0 0 0 20"></Setter>
+            <Setter Property="Foreground" Value="#fff"></Setter>
+            <Setter Property="BorderBrush" Value="#fff"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#fff"></Setter>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Control.BorderThickness" Value="0" />
+            <Setter Property="Control.Background" Value="#00b4d8" />
+            <Setter Property="Control.Foreground" Value="#fff" />
         </Style>
     </Window.Resources>
     <Grid>
@@ -16,7 +26,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="loginForm" Grid.Column="0">
+        <StackPanel x:Name="loginForm" Grid.Column="0" Margin="20 0">
             <Label Content="Email"></Label>
             <TextBox Text="{Binding Email}"></TextBox>
             <Label Content="Пароль"></Label>
@@ -30,7 +40,7 @@
             </ListBox>
             <Button Content="Войти" Command="{Binding LoginCommand}"></Button>
         </StackPanel>
-        <StackPanel x:Name="registerForm" Grid.Column="1">
+        <StackPanel x:Name="registerForm" Grid.Column="1" Margin="20 0">
             <Label Content="Email"></Label>
             <TextBox Text="{Binding Email}"></TextBox>
             <Label Content="Пароль"></Label>

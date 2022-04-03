@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListBoxItem x:Name="ListViewItemMenu" Content="{Binding Header}" Padding="37 14" FontSize="15" Foreground="White"/>
+        <ListBoxItem x:Name="ListViewItemMenu" Content="{Binding Header}" Padding="10 5" FontSize="15" Foreground="White"/>
         <Expander x:Name="ExpanderMenu" Header="{Binding Header}" IsExpanded="False" Width="210" HorizontalAlignment="Right" Background="{x:Null}" Foreground="White">
             <ListView x:Name="ListViewMenu" ItemsSource="{Binding SubItems}" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}" Padding="20 5"/>
+                        <TextBlock Text="{Binding Name}" Padding="15 5"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
