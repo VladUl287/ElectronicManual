@@ -10,19 +10,10 @@
     <Compile Update="Controls\RichTextBoxEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\UserControlMenuItem.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Controls\UserControlPartitionText.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\AuthWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\AdminWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\InteractiveWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TestWindow.xaml.cs">
@@ -36,19 +27,10 @@
     <Page Update="Controls\RichTextBoxEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\UserControlMenuItem.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Controls\UserControlPartitionText.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\AuthWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AdminWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\InteractiveWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindow.xaml">

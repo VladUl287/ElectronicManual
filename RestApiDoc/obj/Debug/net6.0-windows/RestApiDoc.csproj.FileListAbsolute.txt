@@ -48,12 +48,8 @@ C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debu
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\ref\RestApiDoc.dll
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.pdb
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.genruntimeconfig.cache
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\UserControlMenuItem.g.cs
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\MaterialDesignColors.dll
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\UserControlMenuItem.baml
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\UserControlPartitionText.g.cs
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\UserControlPartitionText.baml
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\RichTextBoxEditor.g.cs
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\RichTextBoxEditor.baml
@@ -63,10 +59,8 @@ C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debu
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\AuthWindow.baml
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Prism.dll
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\AdminWindow.g.cs
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\InteractiveWindow.g.cs
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\AdminWindow.baml
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\InteractiveWindow.baml
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\App.baml
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\TestWindow.g.cs
 C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\TestWindow.baml
+C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache

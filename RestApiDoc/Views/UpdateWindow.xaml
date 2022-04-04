@@ -3,21 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestApiDoc.Views" xmlns:controls="clr-namespace:RestApiDoc.Controls"
+        xmlns:local="clr-namespace:RestApiDoc.Views" xmlns:controls="clr-namespace:RestApiDoc.Controls" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ChapterViewModel}"
         mc:Ignorable="d"
         Title="UpdateWindow" Height="450" Width="800"  Background="#2b373d">
+    <Window.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Control.BorderBrush" Value="#fff" />
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Control.BorderThickness" Value="0" />
+            <Setter Property="Control.Background" Value="#00b4d8" />
+            <Setter Property="Control.Foreground" Value="#fff" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="partitionName" Grid.Row="0" Grid.Column="1" Margin="5 5"/>
+        <TextBox Text="{Binding SelectedPartition.Name}" Grid.Row="0" Grid.Column="1" Margin="5 5"/>
         <controls:RichTextBoxEditor x:Name="partitionText" Grid.Row="1" Grid.Column="1"/>
         <Button Content="Обновить" 
                 Margin="5"
                 Grid.Row="2"
                 Grid.Column="1"
-                Name="BtnCreatePartition"/>
+                Click="Button_Click"/>
     </Grid>
 </Window>

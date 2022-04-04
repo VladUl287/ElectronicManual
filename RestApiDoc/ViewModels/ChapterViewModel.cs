@@ -5,32 +5,65 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace RestApiDoc.ViewModels
 {
     public class ChapterViewModel : INotifyPropertyChanged
     {
-        private Chapter selectedChapter;
-        private Test selectedTestAdmin;
-        private Partition selectedPartition;
         private Test selectedTest;
+        private Test selectedTestAdmin;
+        private Chapter selectedChapter;
         private Question selectedQuestion;
-        private readonly DatabaseContext dbContext;
+        private Partition selectedPartition;
+        private Question newQuestion = new();
         public ObservableCollection<Chapter> Chapters { get; private set; }
+
+        private readonly DatabaseContext dbContext;
 
         public ChapterViewModel(DatabaseContext dbContext)
         {
             this.dbContext = dbContext;
 
-            var chapters = this.dbContext.Chapters
-                .Include(e => e.Partitions)
-                .Include(e => e.Tests)
-                .ThenInclude(e => e.Questions)
-                .ThenInclude(e => e.Answers)
-                .AsNoTracking();
+            var chapters = dbContext.Chapters
+               .Include(e => e.Partitions)
+               .Include(e => e.Tests)
+               .ThenInclude(e => e.Questions)
+               .ThenInclude(e => e.Answers)
+               .AsNoTracking();
 
             Chapters = new ObservableCollection<Chapter>(chapters);
+        }
+
+        public Chapter SelectedChapter
+        {
+            get { return selectedChapter; }
+            set
+            {
+                selectedChapter = value;
+                OnPropertyChanged("SelectedChapter");
+            }
+        }
+
+        public Test SelectedTestAdmin
+        {
+            get { return selectedTestAdmin; }
+            set
+            {
+                selectedTestAdmin = value;
+                OnPropertyChanged("SelectedTestAdmin");
+            }
+        }
+
+        public Question NewQuestion
+        {
+            get { return newQuestion; }
+            set
+            {
+                newQuestion = value;
+                OnPropertyChanged("NewQuestion");
+            }
         }
 
         public Test SelectedTest
@@ -63,26 +96,7 @@ namespace RestApiDoc.ViewModels
             }
         }
 
-        public Chapter SelectedChapter
-        {
-            get { return selectedChapter; }
-            set
-            {
-                selectedChapter = value;
-                OnPropertyChanged("SelectedChapter");
-            }
-        }
-
-        public Test SelectedTestAdmin
-        {
-            get { return selectedTestAdmin; }
-            set
-            {
-                selectedTestAdmin = value;
-                OnPropertyChanged("SelectedTestAdmin");
-            }
-        }
-
+        //Chapters
         private RelayCommand addCommand;
         public RelayCommand AddCommand
         {
@@ -98,14 +112,18 @@ namespace RestApiDoc.ViewModels
 
                     try
                     {
-                        var chapter = new Chapter { Name = chapterName };
+                        var chapter = new Chapter 
+                        {
+                            Name = chapterName 
+                        };
+
                         await dbContext.Chapters.AddAsync(chapter);
                         await dbContext.SaveChangesAsync();
                         Chapters.Add(chapter);
                     }
                     catch (DbUpdateException)
                     {
-
+                        MessageBox.Show("Ошибка добавления главы.");
                     }
                 });
             }
@@ -116,8 +134,13 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return editCommand ??= new RelayCommand(async (chapter) =>
+                return editCommand ??= new RelayCommand(async (_) =>
                 {
+                    if (SelectedChapter is null)
+                    {
+                        return;
+                    }
+
                     try
                     {
                         dbContext.Chapters.Update(SelectedChapter);
@@ -125,7 +148,7 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-
+                        MessageBox.Show("Ошибка обновления главы.");
                     }
                 });
             }
@@ -136,14 +159,14 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return deleteCommand ??= new RelayCommand(async (name) =>
+                return deleteCommand ??= new RelayCommand(async (_) =>
                 {
                     if (SelectedChapter is null)
                     {
                         return;
                     }
 
-                    var result = MessageBox.Show("Вы уверены что хотите удалить главу?", "Notif", MessageBoxButton.YesNo);
+                    var result = MessageBox.Show("Вы уверены что хотите удалить главу?", "Оповещение", MessageBoxButton.YesNo);
                     if (result == MessageBoxResult.No)
                     {
                         return;
@@ -157,7 +180,7 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-
+                        MessageBox.Show("Ошибка удаления главы.");
                     }
                 });
             }
@@ -198,10 +221,15 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return editPartitionCommand ??= new RelayCommand(async (partition) =>
+                return editPartitionCommand ??= new RelayCommand(async (_) =>
                 {
                     try
                     {
+                        if (SelectedPartition is null)
+                        {
+                            return;
+                        }
+
                         dbContext.Partitions.Update(SelectedPartition);
                         await dbContext.SaveChangesAsync();
                     }
@@ -239,7 +267,6 @@ namespace RestApiDoc.ViewModels
                 });
             }
         }
-
 
         //Tests
         private RelayCommand addTestCommand;
@@ -355,7 +382,42 @@ namespace RestApiDoc.ViewModels
         }
 
 
-        //questions
+        //Questions
+        private RelayCommand addQuestionCommand;
+        public RelayCommand AddQuestionCommand
+        {
+            get
+            {
+                return addQuestionCommand ??= new RelayCommand(async (pt) =>
+                {
+                    try
+                    {
+                        if (SelectedTestAdmin is null)
+                        {
+                            return;
+                        }
+
+                        if (NewQuestion.Answers.Count == 0 || string.IsNullOrEmpty(NewQuestion.Text))
+                        {
+                            return;
+                        }
+
+                        NewQuestion.TestId = SelectedTestAdmin.Id;
+
+                        var question = NewQuestion;
+                        await dbContext.Questions.AddAsync(question);
+                        await dbContext.SaveChangesAsync();
+                        SelectedTestAdmin.Questions.Add(question);
+                        NewQuestion = new();
+                    }
+                    catch (DbUpdateException)
+                    {
+                        MessageBox.Show("Ошибка создания.");
+                    }
+                });
+            }
+        }
+
         private RelayCommand deleteQuestionCommand;
         public RelayCommand DeleteQuestionCommand
         {
@@ -376,14 +438,14 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-                        MessageBox.Show("Ошибка удаления.");
+                        MessageBox.Show("Ошибка удаления вопроса.");
                     }
                 });
             }
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged is not null)

@@ -4,14 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestApiDoc.Database.Models
 {
-    public class Question : BaseEntity
+    public class Question
     {
-        public string Text { get; set; }
+        public int Id { get; set; }
         public bool IsMultiple { get; set; }
         public bool IsUserAnswer { get; set; }
-        public List<Answer> Answers { get; set; }
+        public string Text { get; set; } = string.Empty;
         public int TestId { get; set; }
         public Test Test { get; set; }
+        public List<Answer> Answers { get; set; } = new();
         [NotMapped]
         public bool IsRight { get; set; } = false;
         [NotMapped]

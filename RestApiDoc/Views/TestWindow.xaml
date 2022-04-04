@@ -6,25 +6,37 @@
         xmlns:local="clr-namespace:RestApiDoc.Views" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RestApiDoc.Views.TestsWindow"
         d:DataContext="{d:DesignInstance Type={x:Type viewmodels:ChapterViewModel}}"
         mc:Ignorable="d"
-        Title="TestsWindow" Height="450" Width="800" Background="#2b373d">
+        Title="TestsWindow" Height="560" Width="900" Background="#2b373d">
     <Window.Resources>
-        <Style TargetType="RadioButton">
+        <Style TargetType="Label">
             <Setter Property="Foreground" Value="#fff"></Setter>
         </Style>
-        <Style TargetType="CheckBox">
+        <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignAccentRadioButton}">
             <Setter Property="Foreground" Value="#fff"></Setter>
+            <Setter Property="Margin" Value="5 0 5 0"></Setter>
+        </Style>
+        <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignAccentCheckBox}">
+            <Setter Property="Foreground" Value="#fff"></Setter>
+            <Setter Property="Margin" Value="5 0 5 0"></Setter>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Control.BorderThickness" Value="0" />
+            <Setter Property="Control.Background" Value="#00b4d8" />
+            <Setter Property="Control.Foreground" Value="#fff" />
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Control.BorderBrush" Value="#fff" />
+            <Setter Property="Margin" Value="5 0 5 0" />
         </Style>
     </Window.Resources>
-    <Grid>
-        <DockPanel>
-            <StatusBar DockPanel.Dock="Bottom">
-                <Label x:Name="lblTimeTest"/>
-            </StatusBar>
-            <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="QuestionsPanel">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <Label x:Name="lblTimeTest"/>
+        </StatusBar>
+        <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="QuestionsPanel" Margin="10 10">
 
-                </StackPanel>
-            </ScrollViewer>
-        </DockPanel>
-    </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

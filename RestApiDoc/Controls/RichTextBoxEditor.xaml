@@ -6,9 +6,6 @@
              xmlns:local="clr-namespace:RestApiDoc.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style TargetType="ComboBox"></Style>
-    </UserControl.Resources>
     <Grid>
         <DockPanel>
             <ToolBar DockPanel.Dock="Top">

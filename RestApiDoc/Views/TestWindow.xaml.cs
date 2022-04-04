@@ -66,7 +66,8 @@ namespace RestApiDoc.Views
         {
             var stackPanel = new StackPanel
             {
-                DataContext = question
+                DataContext = question,
+                Margin = new Thickness(0, 5, 0, 5)
             };
 
             var label = new Label

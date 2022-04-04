@@ -3,6 +3,7 @@ using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace RestApiDoc.ViewModels
 {
@@ -34,7 +35,7 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-
+                        MessageBox.Show("Ошибка создания пользователя.");
                     }
                 });
             }
@@ -55,7 +56,7 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-
+                        MessageBox.Show("Ошибка создания аользователя.");
                     }
                 });
             }
@@ -77,7 +78,7 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-
+                        MessageBox.Show("Ошибка удаления аользователя.");
                     }
                 });
             }
