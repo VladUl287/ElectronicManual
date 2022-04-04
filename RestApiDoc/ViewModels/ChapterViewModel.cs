@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -11,7 +12,10 @@ namespace RestApiDoc.ViewModels
     public class ChapterViewModel : INotifyPropertyChanged
     {
         private Chapter selectedChapter;
+        private Test selectedTestAdmin;
         private Partition selectedPartition;
+        private Test selectedTest;
+        private Question selectedQuestion;
         private readonly DatabaseContext dbContext;
         public ObservableCollection<Chapter> Chapters { get; private set; }
 
@@ -21,8 +25,22 @@ namespace RestApiDoc.ViewModels
 
             var chapters = this.dbContext.Chapters
                 .Include(e => e.Partitions)
+                .Include(e => e.Tests)
+                .ThenInclude(e => e.Questions)
+                .ThenInclude(e => e.Answers)
                 .AsNoTracking();
+
             Chapters = new ObservableCollection<Chapter>(chapters);
+        }
+
+        public Test SelectedTest
+        {
+            get { return selectedTest; }
+            set
+            {
+                selectedTest = value;
+                OnPropertyChanged("SelectedTest");
+            }
         }
 
         public Partition SelectedPartition
@@ -35,6 +53,16 @@ namespace RestApiDoc.ViewModels
             }
         }
 
+        public Question SelectedQuestion
+        {
+            get { return selectedQuestion; }
+            set
+            {
+                selectedQuestion = value;
+                OnPropertyChanged("SelectedQuestion");
+            }
+        }
+
         public Chapter SelectedChapter
         {
             get { return selectedChapter; }
@@ -42,6 +70,16 @@ namespace RestApiDoc.ViewModels
             {
                 selectedChapter = value;
                 OnPropertyChanged("SelectedChapter");
+            }
+        }
+
+        public Test SelectedTestAdmin
+        {
+            get { return selectedTestAdmin; }
+            set
+            {
+                selectedTestAdmin = value;
+                OnPropertyChanged("SelectedTestAdmin");
             }
         }
 
@@ -67,7 +105,7 @@ namespace RestApiDoc.ViewModels
                     }
                     catch (DbUpdateException)
                     {
-                        
+
                     }
                 });
             }
@@ -197,6 +235,148 @@ namespace RestApiDoc.ViewModels
                     catch (DbUpdateException ex)
                     {
                         MessageBox.Show(ex.Message);
+                    }
+                });
+            }
+        }
+
+
+        //Tests
+        private RelayCommand addTestCommand;
+        public RelayCommand AddTestCommand
+        {
+            get
+            {
+                return addTestCommand ??= new RelayCommand(async (pt) =>
+                {
+                    try
+                    {
+                        if (SelectedChapter is null)
+                        {
+                            return;
+                        }
+
+                        var testName = pt.ToString();
+
+                        if (!string.IsNullOrEmpty(testName))
+                        {
+                            var test = new Test
+                            {
+                                Name = testName,
+                                ChapterId = SelectedChapter.Id
+                            };
+                            await dbContext.Tests.AddAsync(test);
+                            await dbContext.SaveChangesAsync();
+                            SelectedChapter.Tests.Add(test);
+                        }
+                    }
+                    catch (DbUpdateException)
+                    {
+                        MessageBox.Show("Ошибка создания.");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand editTestCommand;
+        public RelayCommand EditTestCommand
+        {
+            get
+            {
+                return editTestCommand ??= new RelayCommand(async (pt) =>
+                {
+                    try
+                    {
+                        if (SelectedTestAdmin is null)
+                        {
+                            return;
+                        }
+
+                        dbContext.Tests.Update(SelectedTestAdmin);
+                        await dbContext.SaveChangesAsync();
+                    }
+                    catch (DbUpdateException)
+                    {
+                        MessageBox.Show("Ошибка обновления.");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand deleteAnswersCommand;
+        public RelayCommand DeleteAnswersCommand
+        {
+            get
+            {
+                return deleteAnswersCommand ??= new RelayCommand(async (answers) =>
+                {
+                    try
+                    {
+                        if (answers is null)
+                        {
+                            return;
+                        }
+
+                        var ans = (IEnumerable<Answer>)answers;
+                        dbContext.Answers.RemoveRange(ans);
+                    }
+                    catch (DbUpdateException)
+                    {
+                        MessageBox.Show("Ошибка удаления.");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand deleteTestCommand;
+        public RelayCommand DeleteTestCommand
+        {
+            get
+            {
+                return deleteTestCommand ??= new RelayCommand(async (pt) =>
+                {
+                    try
+                    {
+                        if (SelectedTestAdmin is null)
+                        {
+                            return;
+                        }
+
+                        dbContext.Tests.Remove(SelectedTestAdmin);
+                        await dbContext.SaveChangesAsync();
+                        SelectedChapter.Tests.Remove(SelectedTestAdmin);
+                    }
+                    catch (DbUpdateException)
+                    {
+                        MessageBox.Show("Ошибка удаления.");
+                    }
+                });
+            }
+        }
+
+
+        //questions
+        private RelayCommand deleteQuestionCommand;
+        public RelayCommand DeleteQuestionCommand
+        {
+            get
+            {
+                return deleteQuestionCommand ??= new RelayCommand(async (pt) =>
+                {
+                    try
+                    {
+                        if (SelectedQuestion is null)
+                        {
+                            return;
+                        }
+
+                        dbContext.Questions.Remove(SelectedQuestion);
+                        await dbContext.SaveChangesAsync();
+                        SelectedTest.Questions.Remove(SelectedQuestion);
+                    }
+                    catch (DbUpdateException)
+                    {
+                        MessageBox.Show("Ошибка удаления.");
                     }
                 });
             }

@@ -16,9 +16,40 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="Menu" Margin="10"/>
+            <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Expander x:Name="ExpanderMenu" Header="{Binding Name}" IsExpanded="False" MinWidth="250" HorizontalAlignment="Right" Background="{x:Null}" Foreground="White">
+                                <StackPanel>
+                                    <ListView x:Name="ListViewMenu" ItemsSource="{Binding Partitions}" 
+                                          SelectedItem="{Binding Path=DataContext.SelectedPartition,RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                          Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" Padding="15 5"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                    <ListView ItemsSource="{Binding Tests}" 
+                                          SelectedItem="{Binding Path=DataContext.SelectedTest,RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                          Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" Padding="15 5"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </ScrollViewer>
         <DockPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+            <!--<RichTextBox x:Name="PartitionText" Background="Transparent" IsReadOnly="True" BorderThickness="0" Foreground="#fff" />-->
             <Button x:Name="BtnAdminWindow" Click="BtnAdminWindow_Click">Создать</Button>
         </DockPanel>
     </Grid>

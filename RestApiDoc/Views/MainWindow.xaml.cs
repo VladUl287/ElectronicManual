@@ -1,7 +1,9 @@
 ﻿using RestApiDoc.Controls;
 using RestApiDoc.ViewModels;
 using RestApiDoc.Views;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -18,21 +20,28 @@ namespace RestApiDoc
         {
             InitializeComponent();
             this.chapterViewModel = chapterViewModel;
+            DataContext = chapterViewModel;
+            chapterViewModel.PropertyChanged += (e, args) =>
+            {
+                if (args.PropertyName == "SelectedPartition")
+                {
+                    var stream = new MemoryStream(Encoding.Default.GetBytes(chapterViewModel.SelectedPartition.Text));
+                    //PartitionText.Selection.Load(stream, DataFormats.Rtf);
+                }
+            };
+            chapterViewModel.PropertyChanged += (e, args) =>
+            {
+                if (args.PropertyName == "SelectedTest" && chapterViewModel.SelectedTest is not null)
+                {
+                    var stream = new TestsWindow(chapterViewModel);
+                    stream.ShowDialog();
+                    chapterViewModel.SelectedTest = null;
+                }
+            };
             this.loginViewModel = loginViewModel;
             this.registerViewModel = registerViewModel;
             this.userViewModel = userViewModel;
-            Initialize();
 
-        }
-
-        private void Initialize()
-        {
-            for (int i = 0; i < chapterViewModel.Chapters.Count; i++)
-            {
-                var partitions = chapterViewModel.Chapters[i].Partitions.Select(e => new SubItem(e.Name, new UserControlPartitionText(e.Text)));
-                var chapter = new ItemMenu(chapterViewModel.Chapters[i].Name, partitions);
-                Menu.Children.Add(new UserControlMenuItem(chapter, this));
-            }
         }
 
         internal void SwitchScreen(object sender)
@@ -45,6 +54,8 @@ namespace RestApiDoc
                 StackPanelMain.Children.Add(screen);
             }
         }
+
+
 
         private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
         {
