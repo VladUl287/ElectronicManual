@@ -4,38 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestApiDoc.Views" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RestApiDoc.Views.TestsWindow"
-        d:DataContext="{d:DesignInstance Type={x:Type viewmodels:ChapterViewModel}}"
+        d:DataContext="{d:DesignInstance Type={x:Type viewmodels:MainViewModel}}"
         mc:Ignorable="d"
         Title="TestsWindow" Height="560" Width="900" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="Label">
-            <Setter Property="Foreground" Value="#fff"></Setter>
+            <Setter Property="Foreground" Value="#fff"/>
         </Style>
         <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignAccentRadioButton}">
-            <Setter Property="Foreground" Value="#fff"></Setter>
-            <Setter Property="Margin" Value="5 0 5 0"></Setter>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="Margin" Value="5 0 5 0"/>
         </Style>
         <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignAccentCheckBox}">
-            <Setter Property="Foreground" Value="#fff"></Setter>
-            <Setter Property="Margin" Value="5 0 5 0"></Setter>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="Margin" Value="5 0 5 0"/>
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-            <Setter Property="Control.BorderThickness" Value="0" />
-            <Setter Property="Control.Background" Value="#00b4d8" />
-            <Setter Property="Control.Foreground" Value="#fff" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#00b4d8"/>
+            <Setter Property="Foreground" Value="#fff"/>
         </Style>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-            <Setter Property="Control.BorderBrush" Value="#fff" />
-            <Setter Property="Margin" Value="5 0 5 0" />
+            <Setter Property="BorderBrush" Value="#fff"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="Margin" Value="5 0 5 0"/>
         </Style>
     </Window.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
-            <Label x:Name="lblTimeTest"/>
+            <Label x:Name="lblTimeTest" Foreground="#000"/>
         </StatusBar>
         <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="QuestionsPanel" Margin="10 10">
+            <StackPanel>
+                <StackPanel x:Name="QuestionsPanel" Margin="15 5">
 
+                </StackPanel>
+                <Button Click="BtnResult_Click" Margin="15 5">Завершить</Button>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace RestApiDoc.Database.Models
 {
-    public class Chapter
+    public record Chapter
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

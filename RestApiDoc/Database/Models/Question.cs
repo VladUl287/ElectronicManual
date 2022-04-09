@@ -7,6 +7,7 @@ namespace RestApiDoc.Database.Models
     public class Question
     {
         public int Id { get; set; }
+        public QuestionType QuestionType { get; set; }
         public bool IsMultiple { get; set; }
         public bool IsUserAnswer { get; set; }
         public string Text { get; set; } = string.Empty;
@@ -17,5 +18,12 @@ namespace RestApiDoc.Database.Models
         public bool IsRight { get; set; } = false;
         [NotMapped]
         public List<Answer> SelectAnswers { get; set; } = new();
+    }
+
+    public enum QuestionType
+    {
+        Single,
+        Multiple,
+        UserAnswer
     }
 }

@@ -1,68 +1,48 @@
 ﻿using RestApiDoc.Database.Models;
 using RestApiDoc.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
 namespace RestApiDoc.Views
 {
     public partial class AdminWindow : Window
     {
-        private readonly ChapterViewModel chapterViewModel;
+        private readonly AdminViewModel adminViewModel;
 
-        public AdminWindow(ChapterViewModel chapterViewModel, UserViewModel userViewModel)
+        public AdminWindow(AdminViewModel adminViewModel)
         {
             InitializeComponent();
-            DataContext = chapterViewModel;
-            chapterViewModel.PropertyChanged += ChapterViewModel_PropertyChanged;
-
-            UsersListParent.DataContext = userViewModel;
-            this.chapterViewModel = chapterViewModel;
+            DataContext = adminViewModel;
+            this.adminViewModel = adminViewModel;
+            adminViewModel.PropertyChanged += AdminViewModel_PropertyChanged;
 
             SingeRadioBtn.IsChecked = true;
         }
 
-        private void ChapterViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void AdminViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "SelectedQuestion")
+            if (e.PropertyName == "SelectedPartition" && adminViewModel.SelectedPartition is not null)
             {
-                if (chapterViewModel.SelectedQuestion.IsMultiple)
-                {
-                    MultipleRadioBtn.IsChecked = false;
-                    MultipleRadioBtn.IsChecked = true;
-                }
-                else if (chapterViewModel.SelectedQuestion.IsUserAnswer)
-                {
-                    UserAnswerRadioBtn.IsChecked = false;
-                    UserAnswerRadioBtn.IsChecked = true;
-                }
-                else
-                {
-                    SingeRadioBtn.IsChecked = false;
-                    SingeRadioBtn.IsChecked = true;
-                }
+                new UpdateWindow(adminViewModel).ShowDialog();
             }
         }
 
         private void BtnCreatePartition_Click(object sender, RoutedEventArgs e)
         {
-            var partition = new Partition
+            if (adminViewModel.SelectedChapter is not null)
             {
-                Name = partitionName.Text,
-                Text = partitionText.Rtf,
-                ChapterId = chapterViewModel.SelectedChapter.Id
-            };
+                var partition = new Partition
+                {
+                    Name = partitionName.Text,
+                    Text = partitionText.Rtf
+                };
 
-            chapterViewModel.AddPartitionCommand.Execute(partition);
-        }
-
-        private void BtnPartition_Click(object sender, RoutedEventArgs e)
-        {
-            var selectedItem = (ListBoxItem)partitionsList.ItemContainerGenerator.ContainerFromItem(((Button)sender).DataContext);
-            selectedItem.IsSelected = true;
-
-            new UpdateWindow(chapterViewModel).ShowDialog();
+                adminViewModel.AddPartitionCommand.Execute(partition);
+            }
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -89,7 +69,9 @@ namespace RestApiDoc.Views
 
                 PanelAnswers.Children.Add(textBox);
 
-                chapterViewModel.NewQuestion.Answers.Add(answer);
+                adminViewModel.NewQuestion.QuestionType = QuestionType.UserAnswer;
+                adminViewModel.NewQuestion.Answers.Clear();
+                adminViewModel.NewQuestion.Answers.Add(answer);
             }
             else if (radio.Name == "MultipleRadioBtn")
             {
@@ -116,14 +98,16 @@ namespace RestApiDoc.Views
                     {
                         Source = answer
                     };
-                    checkBox.SetBinding(CheckBox.IsCheckedProperty, bindingRight);
+                    checkBox.SetBinding(ToggleButton.IsCheckedProperty, bindingRight);
 
                     PanelAnswers.Children.Add(checkBox);
 
                     listAnswers.Add(answer);
                 }
 
-                chapterViewModel.NewQuestion.Answers.AddRange(listAnswers);
+                adminViewModel.NewQuestion.QuestionType = QuestionType.Multiple;
+                adminViewModel.NewQuestion.Answers.Clear();
+                adminViewModel.NewQuestion.Answers.AddRange(listAnswers);
             }
             else
             {
@@ -158,8 +142,9 @@ namespace RestApiDoc.Views
                     listAnswers.Add(answer);
                 }
 
-                chapterViewModel.NewQuestion.Answers.Clear();
-                chapterViewModel.NewQuestion.Answers.AddRange(listAnswers);
+                adminViewModel.NewQuestion.QuestionType = QuestionType.Single;
+                adminViewModel.NewQuestion.Answers.Clear();
+                adminViewModel.NewQuestion.Answers.AddRange(listAnswers);
             }
         }
     }

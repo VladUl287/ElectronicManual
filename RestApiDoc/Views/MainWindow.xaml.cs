@@ -1,5 +1,4 @@
-﻿using RestApiDoc.Controls;
-using RestApiDoc.ViewModels;
+﻿using RestApiDoc.ViewModels;
 using RestApiDoc.Views;
 using System.IO;
 using System.Text;
@@ -9,36 +8,28 @@ namespace RestApiDoc
 {
     public partial class MainWindow : Window
     {
-        private readonly ChapterViewModel chapterViewModel;
-        private readonly UserViewModel userViewModel;
+        private readonly MainViewModel mainViewModel;
 
-        public MainWindow(ChapterViewModel chapterViewModel, UserViewModel userViewModel)
+        public MainWindow(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            DataContext = chapterViewModel;
-            chapterViewModel.PropertyChanged += ChapterViewModel_PropertyChanged;
-
-            this.chapterViewModel = chapterViewModel;
-            this.userViewModel = userViewModel;
+            DataContext = mainViewModel;
+            this.mainViewModel = mainViewModel;
+            mainViewModel.PropertyChanged += ChapterViewModel_PropertyChanged;
         }
 
         private void ChapterViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "SelectedPartition")
+            if (e.PropertyName == "SelectedPartition" && mainViewModel.SelectedPartition is not null)
             {
-                var stream = new MemoryStream(Encoding.Default.GetBytes(chapterViewModel.SelectedPartition.Text));
-                PartitionText.Selection.Load(stream, DataFormats.Rtf);
+                SetRtfText(mainViewModel.SelectedPartition.Text);
             }
-            if (e.PropertyName == "SelectedTest" && chapterViewModel.SelectedTest is not null)
+            if (e.PropertyName == "SelectedTest" && mainViewModel.SelectedTest is not null)
             {
-                new TestsWindow(chapterViewModel).ShowDialog();
-                chapterViewModel.SelectedTest = null;
+                IocService.Get<TestsWindow>()?.ShowDialog();
+                //new TestsWindow(mainViewModel).ShowDialog();
+                mainViewModel.SelectedTest = null;
             }
-        }
-
-        private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
-        {
-            new AdminWindow(chapterViewModel, userViewModel).ShowDialog();
         }
 
         private void BtnSideBarToggle_Click(object sender, RoutedEventArgs e)
@@ -51,19 +42,37 @@ namespace RestApiDoc
                 case Visibility.Collapsed:
                     SideBarMenu.Visibility = Visibility.Visible;
                     break;
-                default:
-                    break;
             }
         }
 
         private void BtnManagment_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenAdditionalFile("Data/Additional/managment.rtf");
         }
 
         private void BtnProgrammInfo_Click(object sender, RoutedEventArgs e)
         {
+            OpenAdditionalFile("Data/Additional/managment.rtf");
+        }
 
+        private void SetRtfText(string rtf)
+        {
+            var stream = new MemoryStream(Encoding.Default.GetBytes(rtf));
+            PartitionTextRtb.Selection.Load(stream, DataFormats.Rtf);
+        }
+
+        private void OpenAdditionalFile(string name)
+        {
+            if (File.Exists(name))
+            {
+                using var fs = new FileStream(name, FileMode.Open);
+                PartitionTextRtb.Selection.Load(fs, DataFormats.Rtf);
+            }
+        }
+
+        private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
+        {
+            IocService.Get<AdminWindow>()?.ShowDialog();
         }
     }
 }

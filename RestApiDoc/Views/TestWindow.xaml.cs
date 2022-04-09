@@ -1,19 +1,10 @@
 ﻿using RestApiDoc.Database.Models;
 using RestApiDoc.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RestApiDoc.Views
 {
@@ -24,40 +15,40 @@ namespace RestApiDoc.Views
         private static readonly Random random = new();
         private readonly Timer timer = new(1000);
 
-        public TestsWindow(ChapterViewModel chapterViewModel)
+        public TestsWindow(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            DataContext = chapterViewModel;
+            DataContext = mainViewModel;
 
-            questions = chapterViewModel.SelectedTest.Questions.ToArray();
+            if (mainViewModel.SelectedTest is null)
+            {
+                Close();
+            }
+
+            questions = mainViewModel.SelectedTest!.Questions.ToArray();
             Shuffle(questions);
             questions = questions.Take(10).ToArray();
 
             for (int i = 0; i < questions.Length; i++)
             {
                 CreateQuestion(questions[i]);
-                if (questions[i].IsMultiple)
+
+                switch (questions[i].QuestionType)
                 {
-                    seconds += 60;
-                }
-                else if (questions[i].IsUserAnswer)
-                {
-                    seconds += 90;
-                }
-                else
-                {
-                    seconds += 30;
+                    case QuestionType.Single:
+                        seconds += 30;
+                        break;
+                    case QuestionType.Multiple:
+                        seconds += 60;
+                        break;
+                    case QuestionType.UserAnswer:
+                        seconds += 90;
+                        break;
                 }
             }
-            var button = new Button
-            {
-                Content = "Завершить"
-            };
-            button.Click += BtnResult_Click;
-
-            QuestionsPanel.Children.Add(button);
 
             SetTime();
+
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
@@ -67,7 +58,7 @@ namespace RestApiDoc.Views
             var stackPanel = new StackPanel
             {
                 DataContext = question,
-                Margin = new Thickness(0, 5, 0, 5)
+                Margin = new Thickness(0, 2, 0, 5)
             };
 
             var label = new Label
@@ -149,23 +140,23 @@ namespace RestApiDoc.Views
             }
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             seconds--;
             SetTime();
             if (seconds <= 0)
             {
-                BtnResult_Click(null, null);
+                BtnResult_Click(null, EventArgs.Empty);
             }
         }
 
-        private void BtnResult_Click(object sender, EventArgs e)
+        private void BtnResult_Click(object? sender, EventArgs e)
         {
             timer.Stop();
 
-            var result = 5;
-            var count = questions.Count(x => x.IsRight);
-            var percent = count * 100 / questions.Length;
+            byte result = 5;
+            var count = questions.Count(x => x.IsRight) * 100;
+            var percent = count / questions.Length;
             if (percent < 60)
             {
                 result = 2;
@@ -180,74 +171,87 @@ namespace RestApiDoc.Views
             }
 
             string msg = result < 3 ? "непройден" : "пройден";
-            MessageBox.Show($"Тест {msg}. Правильных ответов {count}. Ваша оценка {result}.", "Результат", default);
+            MessageBox.Show($"Тест {msg}. Правильных ответов {count}. Ваша оценка {result}.", "Результат");
 
             Close();
         }
 
         private void CkAnswer_CheckedChanged(object sender, EventArgs e)
         {
-            var check = (CheckBox)sender;
-            var answer = ((CheckBox)sender).DataContext as Answer;
-            var question = (((CheckBox)sender).Parent as StackPanel).DataContext as Question;
+            try
+            {
+                var answer = (Answer)((CheckBox)sender).DataContext;
+                var question = (Question)((StackPanel)((CheckBox)sender).Parent).DataContext;
 
-            question.SelectAnswers.Add(answer);
-            if (question.SelectAnswers.Count(e => e.IsRight) == question.Answers.Count(e => e.IsRight) &&
-                question.SelectAnswers.Count == question.Answers.Count(e => e.IsRight))
-            {
-                question.IsRight = true;
+                question.SelectAnswers.Add(answer);
+                var count = question.Answers.Count(e => e.IsRight);
+                if (question.SelectAnswers.Count == count && question.SelectAnswers.Count(e => e.IsRight) == count)
+                {
+                    question.IsRight = true;
+                }
+                else
+                {
+                    question.IsRight = false;
+                }
             }
-            else
+            catch
             {
-                question.IsRight = false;
+
             }
         }
 
         private void CkAnswer_UnCheckedChanged(object sender, EventArgs e)
         {
-            var check = (CheckBox)sender;
-            var answer = ((CheckBox)sender).DataContext as Answer;
-            var question = (((CheckBox)sender).Parent as StackPanel).DataContext as Question;
+            try
+            {
+                var answer = (Answer)((CheckBox)sender).DataContext;
+                var question = (Question)((StackPanel)((CheckBox)sender).Parent).DataContext;
 
-            question.SelectAnswers.Remove(answer);
-            if (question.SelectAnswers.Count(e => e.IsRight) == question.Answers.Count(e => e.IsRight) &&
-                question.SelectAnswers.Count == question.Answers.Count(e => e.IsRight))
-            {
-                question.IsRight = true;
+                question.SelectAnswers.Remove(answer);
+                var count = question.Answers.Count(e => e.IsRight);
+                if (question.SelectAnswers.Count == count && question.SelectAnswers.Count(e => e.IsRight) == count)
+                {
+                    question.IsRight = true;
+                }
+                else
+                {
+                    question.IsRight = false;
+                }
             }
-            else
+            catch
             {
-                question.IsRight = false;
+
             }
         }
 
         private void RbAnswer_CheckedChanged(object sender, EventArgs e)
         {
-            var radio = ((RadioButton)sender).DataContext as Answer;
-            var question = (((RadioButton)sender).Parent as StackPanel).DataContext as Question;
 
-            if (radio.IsRight)
+            try
             {
-                question.IsRight = true;
+                var radio = (Answer)((RadioButton)sender).DataContext;
+                var question = (Question)((StackPanel)((RadioButton)sender).Parent).DataContext;
+
+                question.IsRight = radio.IsRight;
             }
-            else
+            catch
             {
-                question.IsRight = false;
+
             }
         }
 
         private void TbAnswer_Checked_Validated(object sender, EventArgs e)
         {
-            var textBox = ((TextBox)sender);
-            var question = (((TextBox)sender).Parent as StackPanel).DataContext as Question;
+            try
+            {
+                var textBox = ((TextBox)sender);
+                var question = (Question)((StackPanel)((TextBox)sender).Parent).DataContext;
 
-            if (question.Answers.FirstOrDefault().Text == textBox.Text)
-            {
-                question.IsRight = true;
+                question.IsRight = question.Answers.FirstOrDefault()?.Text == textBox.Text;
             }
-            else
+            catch
             {
-                question.IsRight = false;
+
             }
         }
     }

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\
+C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\
 RestApiDoc
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\User\Downloads\Новая папка (2)\RestApiDoc\RestApiDoc\App.xaml
+C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\App.xaml
 6-1777505316
 
-221830814170
-217986593266
+231074006736
+2182128891017
 Controls\RichTextBoxEditor.xaml;Views\AdminWindow.xaml;Views\AuthWindow.xaml;Views\MainWindow.xaml;Views\TestWindow.xaml;Views\UpdateWindow.xaml;
 
 False

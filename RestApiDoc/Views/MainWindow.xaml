@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestApiDoc" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ChapterViewModel}"
+        xmlns:local="clr-namespace:RestApiDoc" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="560" Width="900" Background="#2b373d">
     <Window.Resources>
@@ -11,6 +11,11 @@
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Padding" Value="3"></Setter>
+            <Setter Property="Margin" Value="6"></Setter>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="28"></Setter>
+            <Setter Property="Height" Value="28"></Setter>
         </Style>
         <Style TargetType="RichTextBox"></Style>
     </Window.Resources>
@@ -23,22 +28,22 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
             <Button Click="BtnSideBarToggle_Click">
-                <Image Source="/RestApiDoc;component/Data/menu.png" Width="36" Height="36" />
+                <Image Source="/RestApiDoc;component/Data/menu.png" />
             </Button>
-            <Button Click="BtnManagment_Click"  Padding="10">
-                <Image Source="/RestApiDoc;component/Data/book.png" Width="24" Height="24" />
+            <Button Click="BtnManagment_Click">
+                <Image Source="/RestApiDoc;component/Data/book_small.png" Width="22" Height=" 22" />
             </Button>
-            <Button Click="BtnProgrammInfo_Click"  Padding="10">
-                <Image Source="/RestApiDoc;component/Data/info.png" Width="24" Height="24" />
+            <Button Click="BtnProgrammInfo_Click">
+                <Image Source="/RestApiDoc;component/Data/info.png"/>
             </Button>
             <Button Click="BtnAdminWindow_Click">
-                <Image Source="/RestApiDoc;component/Data/admin.png" Width="36" Height="36" />
+                <Image Source="/RestApiDoc;component/Data/admin.png" />
             </Button>
         </StackPanel>
-        
+
         <ScrollViewer x:Name="SideBarMenu" 
                       Grid.Row="1" 
                       Grid.Column="0" 
@@ -57,7 +62,7 @@
                             <StackPanel>
                                 <ListView Foreground="#fff" 
                                           ItemsSource="{Binding Partitions}" 
-                                          SelectedItem="{Binding Path=DataContext.SelectedPartition,RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                          SelectedItem="{Binding Path=DataContext.SelectedPartition, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
@@ -82,12 +87,10 @@
             </ListView>
         </ScrollViewer>
         <DockPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
-            <RichTextBox x:Name="PartitionText" 
-                         Background="Transparent" 
+            <RichTextBox x:Name="PartitionTextRtb" 
+                         Background="#ced4da" 
                          IsReadOnly="True" 
-                         BorderThickness="0" 
-                         Foreground="#fff" />
+                         BorderThickness="0"/>
         </DockPanel>
-        <!--<Button x:Name="BtnAdminWindow" Click="BtnAdminWindow_Click">Создать</Button>-->
     </Grid>
 </Window>

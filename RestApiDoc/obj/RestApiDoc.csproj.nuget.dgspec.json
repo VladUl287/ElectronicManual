@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj": {}
+    "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj": {
+    "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
         "projectName": "RestApiDoc",
-        "projectPath": "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
+        "projectPath": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\obj\\",
+        "outputPath": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.4.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

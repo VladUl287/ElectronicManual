@@ -17,6 +17,13 @@ namespace RestApiDoc.Database
         public DbSet<Question> Questions { get; init; }
         public DbSet<Answer> Answers { get; init; }
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TestRestAppDb;Trusted_connection=true");
+
+        //    base.OnConfiguring(optionsBuilder);
+        //}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Chapter>(entity =>

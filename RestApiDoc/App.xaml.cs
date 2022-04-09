@@ -2,19 +2,18 @@
 using Microsoft.Extensions.DependencyInjection;
 using RestApiDoc.Database;
 using RestApiDoc.ViewModels;
+using RestApiDoc.Views;
 using System.Windows;
 
 namespace RestApiDoc
 {
     public partial class App : Application
     {
-        private readonly ServiceProvider serviceProvider;
-
         public App()
         {
             var services = new ServiceCollection();
             ConfigureServices(services);
-            serviceProvider = services.BuildServiceProvider();
+            IocService.Initialize(services);
         }
 
         private static void ConfigureServices(ServiceCollection services)
@@ -22,19 +21,22 @@ namespace RestApiDoc
             services.AddDbContext<DatabaseContext>(options =>
             {
                 options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=RestAppDb;Trusted_connection=true");
-            });
+            }, ServiceLifetime.Transient);
 
             services.AddSingleton<MainWindow>();
-            services.AddSingleton<ChapterViewModel>();
+            services.AddTransient<TestsWindow>();
+            services.AddTransient<AdminWindow>();
+
+            services.AddSingleton<MainViewModel>();
+            services.AddSingleton<AdminViewModel>();
+
             services.AddSingleton<LoginViewModel>();
             services.AddSingleton<RegisterViewModel>();
-            services.AddSingleton<UserViewModel>();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            var mainWindow = serviceProvider.GetService<MainWindow>();
-            mainWindow.Show();
+            IocService.Get<MainWindow>()?.Show();
         }
     }
 }

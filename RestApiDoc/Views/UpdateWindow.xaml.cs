@@ -5,21 +5,38 @@ namespace RestApiDoc.Views
 {
     public partial class UpdateWindow : Window
     {
-        private readonly ChapterViewModel chapterViewModel;
+        private readonly AdminViewModel chapterViewModel;
 
-        public UpdateWindow(ChapterViewModel chapterViewModel)
+        public UpdateWindow(AdminViewModel chapterViewModel)
         {
             InitializeComponent();
+            if (chapterViewModel.SelectedPartition is null)
+            {
+                Close();
+            }
+
             DataContext = chapterViewModel;
-            partitionText.SetRtf(chapterViewModel.SelectedPartition.Text);
+            partitionText.SetRtf(chapterViewModel.SelectedPartition!.Text);
             this.chapterViewModel = chapterViewModel;
+        }
+
+        private void BtnUpdatePartition_Click(object sender, RoutedEventArgs e)
+        {
+            if (chapterViewModel.SelectedPartition is not null)
+            {
+                chapterViewModel.SelectedPartition.Text = partitionText.Rtf;
+
+                chapterViewModel.EditPartitionCommand.Execute(null);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            chapterViewModel.SelectedPartition.Text = partitionText.Rtf;
-
-            chapterViewModel.EditPartitionCommand.Execute(null);
+            if (chapterViewModel.SelectedPartition is not null)
+            {
+                chapterViewModel.DeletePartitionCommand.Execute(null);
+            }
+            Close();
         }
     }
 }

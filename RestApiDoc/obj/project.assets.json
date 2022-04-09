@@ -123,6 +123,18 @@
           "lib/netstandard2.0/_._": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/6.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.3"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/6.0.3": {
         "type": "package",
         "dependencies": {
@@ -881,6 +893,20 @@
         "lib/netstandard2.0/_._",
         "microsoft.entityframeworkcore.analyzers.6.0.3.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/6.0.3": {
+      "sha512": "4LX3OTfSQYUYGASDYcpSfI8zXSb5ycGkCqRuaUK4emXAdq98ebOOBBTqwl9VCTZjZiBpiMaUPRO1GQg4FrybGA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/6.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.6.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/6.0.3": {
@@ -1877,6 +1903,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "MaterialDesignThemes >= 4.4.0",
+      "Microsoft.EntityFrameworkCore.InMemory >= 6.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.3",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
       "Prism.Core >= 8.1.97"
@@ -1888,11 +1915,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
       "projectName": "RestApiDoc",
-      "projectPath": "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
+      "projectPath": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Downloads\\Новая папка (2)\\RestApiDoc\\RestApiDoc\\obj\\",
+      "outputPath": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1924,6 +1951,10 @@
           "MaterialDesignThemes": {
             "target": "Package",
             "version": "[4.4.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[6.0.3, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
