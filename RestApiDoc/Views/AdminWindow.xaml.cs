@@ -59,7 +59,10 @@ namespace RestApiDoc.Views
             if (radio.Name == "UserAnswerRadioBtn")
             {
                 var answer = new Answer();
-                var textBox = new TextBox();
+                var textBox = new TextBox
+                {
+                    MinWidth = 150
+                };
 
                 var bindingText = new Binding("Text")
                 {

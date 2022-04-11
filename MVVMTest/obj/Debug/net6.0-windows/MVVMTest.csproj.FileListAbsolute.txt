@@ -47,7 +47,6 @@ C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\NuGet.Frameworks.dll
-C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\Prism.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -135,3 +134,4 @@ C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\obj\Debug\net6.0-
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\obj\Debug\net6.0-windows\MVVMTest.pdb
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\obj\Debug\net6.0-windows\MVVMTest.genruntimeconfig.cache
 C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\User\Downloads\Практика 4\RestApiDoc\MVVMTest\bin\Debug\net6.0-windows\Data\ReferenceInformation.chm

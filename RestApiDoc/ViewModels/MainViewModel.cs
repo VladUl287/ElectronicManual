@@ -21,21 +21,28 @@ namespace RestApiDoc.ViewModels
         {
             this.dbContext = dbContext;
 
-            SetChapters();
-        }
-
-        public async Task SetChapters()
-        {
-            var chapters = await dbContext.Chapters
+            var chapters = dbContext.Chapters
                .Include(e => e.Partitions)
                .Include(e => e.Tests)
                .ThenInclude(e => e.Questions)
                .ThenInclude(e => e.Answers)
-               .AsNoTracking()
-               .ToListAsync();
+               .AsNoTracking();
 
             Chapters = new ObservableCollection<Chapter>(chapters);
         }
+
+        //public async Task SetChapters()
+        //{
+        //    var chapters = await dbContext.Chapters
+        //       .Include(e => e.Partitions)
+        //       .Include(e => e.Tests)
+        //       .ThenInclude(e => e.Questions)
+        //       .ThenInclude(e => e.Answers)
+        //       .AsNoTracking()
+        //       .ToListAsync();
+
+        //    Chapters = new ObservableCollection<Chapter>(chapters);
+        //}
 
         public Chapter? SelectedChapter
         {

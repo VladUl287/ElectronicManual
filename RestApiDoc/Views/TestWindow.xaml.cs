@@ -171,7 +171,8 @@ namespace RestApiDoc.Views
             }
 
             string msg = result < 3 ? "непройден" : "пройден";
-            MessageBox.Show($"Тест {msg}. Правильных ответов {count}. Ваша оценка {result}.", "Результат");
+            MessageBox.Show($"Тест {msg}. Правильных ответов {count}. " +
+                $"Ваша оценка {result}.", "Результат");
 
             Close();
         }

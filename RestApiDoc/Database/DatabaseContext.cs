@@ -17,13 +17,6 @@ namespace RestApiDoc.Database
         public DbSet<Question> Questions { get; init; }
         public DbSet<Answer> Answers { get; init; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TestRestAppDb;Trusted_connection=true");
-
-        //    base.OnConfiguring(optionsBuilder);
-        //}
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Chapter>(entity =>
@@ -32,9 +25,9 @@ namespace RestApiDoc.Database
 
                 entity.HasData(new Chapter[]
                 {
-                    new Chapter { Id = 1, Name = "Chapter 1" },
-                    new Chapter { Id = 2, Name = "Chapter 2" },
-                    new Chapter { Id = 3, Name = "Chapter 3" }
+                    new Chapter { Id = 1, Name = "Введение" },
+                    new Chapter { Id = 2, Name = "Основные положения" },
+                    new Chapter { Id = 3, Name = "Заключение" },
                 });
             });
 
@@ -45,10 +38,6 @@ namespace RestApiDoc.Database
                 entity.HasData(new Partition[]
                 {
                     new Partition { Id = 1, Name = "Partition 1", Text = "ergregre", ChapterId = 1 },
-                    new Partition { Id = 2, Name = "Partition 2", Text = "wefwefwe", ChapterId = 1 },
-                    new Partition { Id = 3, Name = "Partition 3", Text = "24324235", ChapterId = 2 },
-                    new Partition { Id = 4, Name = "Partition 4", Text = "erfeger", ChapterId = 2 },
-                    new Partition { Id = 5, Name = "Partition 5", Text = "ergregger", ChapterId = 2 },
                 });
             });
 
@@ -249,15 +238,10 @@ namespace RestApiDoc.Database
                     new User
                     {
                         Id = 1,
-                        Email = "ulyanovskiy.01@mail.ru",
-                        Password = "password"
+                        Email = "email@mail.ru",
+                        Password = "password",
+                        IsAdmin = true,
                     },
-                    new User
-                    {
-                        Id = 2,
-                        Email = "ulyanovskiy.2001@mail.ru",
-                        Password = "password"
-                    }
                 });
             });
         }

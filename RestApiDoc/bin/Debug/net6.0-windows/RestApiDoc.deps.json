@@ -11,8 +11,7 @@
           "MaterialDesignThemes": "4.4.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Prism.Core": "8.1.97"
+          "Microsoft.Extensions.DependencyInjection": "6.0.0"
         },
         "runtime": {
           "RestApiDoc.dll": {}
@@ -336,14 +335,6 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         }
       },
-      "Prism.Core/8.1.97": {
-        "runtime": {
-          "lib/net5.0/Prism.dll": {
-            "assemblyVersion": "8.1.97.5141",
-            "fileVersion": "8.1.97.5141"
-          }
-        }
-      },
       "System.Collections.Immutable/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -633,13 +624,6 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
-    },
-    "Prism.Core/8.1.97": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-EP5zrvWddw3eSq25Y7hHnDYdmLZEC2Z/gMrvmHzUuLbitmA1UaS7wQUlSwNr9Km8lzJNCvytFnaGBEFukHgoHg==",
-      "path": "prism.core/8.1.97",
-      "hashPath": "prism.core.8.1.97.nupkg.sha512"
     },
     "System.Collections.Immutable/6.0.0": {
       "type": "package",

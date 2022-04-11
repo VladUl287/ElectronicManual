@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database;
-using System.Collections.ObjectModel;
+using RestApiDoc.Database.Models;
 
 namespace RestApiDoc.ViewModels
 {
@@ -13,9 +13,10 @@ namespace RestApiDoc.ViewModels
             this.dbContext = dbContext;
         }
 
+        public static User? AuthUser { get; private set; }
+
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public ObservableCollection<string> LoginErrors { get; set; } = new();
 
 
         private RelayCommand loginCommand;
@@ -27,11 +28,10 @@ namespace RestApiDoc.ViewModels
                 {
                     if (IsValid)
                     {
-                        LoginErrors.Clear();
                         var user = await dbContext.Users.FirstOrDefaultAsync(e => e.Email == Email && e.Password == Password);
-                        if (user is null)
+                        if (user is not null)
                         {
-                            LoginErrors.Add("faild");
+                            AuthUser = user;
                         }
                     }
                 });
@@ -44,7 +44,6 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                LoginErrors.Clear();
                 var result = true;
                 for (int i = 0; i < ValidatedProperties.Length; i++)
                 {
@@ -67,14 +66,12 @@ namespace RestApiDoc.ViewModels
                     if (string.IsNullOrEmpty(Email))
                     {
                         result = false;
-                        LoginErrors.Add("Некорректный Email.");
                     }
                     break;
                 case "Password":
                     if (string.IsNullOrEmpty(Password))
                     {
                         result = false;
-                        LoginErrors.Add("Некорректный пароль.");
                     }
                     break;
             }

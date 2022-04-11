@@ -5,11 +5,10 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\Additional\info.rtf" />
-    <None Remove="Data\Additional\managment.rtf" />
     <None Remove="Data\admin.png" />
     <None Remove="Data\bold.png" />
     <None Remove="Data\book.png" />
@@ -18,12 +17,17 @@
     <None Remove="Data\info.png" />
     <None Remove="Data\italics.png" />
     <None Remove="Data\menu.png" />
+    <None Remove="Data\ReferenceInformation.chm" />
     <None Remove="Data\underline.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Data\Additional\info.rtf" />
-    <Resource Include="Data\Additional\managment.rtf" />
+    <Content Include="Data\ReferenceInformation.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Data\admin.png" />
     <Resource Include="Data\bold.png" />
     <Resource Include="Data\book_small.png" />
@@ -39,7 +43,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Prism.Core" Version="8.1.97" />
   </ItemGroup>
 
 </Project>

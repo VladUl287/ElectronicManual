@@ -55,10 +55,6 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[6.0.0, )"
-            },
-            "Prism.Core": {
-              "target": "Package",
-              "version": "[8.1.97, )"
             }
           },
           "imports": [
@@ -75,7 +71,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WPF": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

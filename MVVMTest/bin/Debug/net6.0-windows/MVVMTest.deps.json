@@ -716,14 +716,6 @@
           }
         }
       },
-      "Prism.Core/8.1.97": {
-        "runtime": {
-          "lib/net5.0/Prism.dll": {
-            "assemblyVersion": "8.1.97.5141",
-            "fileVersion": "8.1.97.5141"
-          }
-        }
-      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1442,8 +1434,7 @@
           "MaterialDesignThemes": "4.4.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Prism.Core": "8.1.97"
+          "Microsoft.Extensions.DependencyInjection": "6.0.0"
         },
         "runtime": {
           "RestApiDoc.dll": {}
@@ -1743,13 +1734,6 @@
       "sha512": "sha512-c5JVjuVAm4f7E9Vj+v09Z9s2ZsqFDjBpcsyS3M9xRo0bEdm/LVZSzLxxNvfvAwRiiE8nwe1h2G4OwiwlzFKXlA==",
       "path": "nuget.frameworks/5.0.0",
       "hashPath": "nuget.frameworks.5.0.0.nupkg.sha512"
-    },
-    "Prism.Core/8.1.97": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-EP5zrvWddw3eSq25Y7hHnDYdmLZEC2Z/gMrvmHzUuLbitmA1UaS7wQUlSwNr9Km8lzJNCvytFnaGBEFukHgoHg==",
-      "path": "prism.core/8.1.97",
-      "hashPath": "prism.core.8.1.97.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

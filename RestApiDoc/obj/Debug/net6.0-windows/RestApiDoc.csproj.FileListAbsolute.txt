@@ -92,7 +92,6 @@ C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
-C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Prism.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -131,3 +130,5 @@ C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.pdb
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.genruntimeconfig.cache
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\Data\ReferenceInformation.chm
+C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc_Content.g.cs

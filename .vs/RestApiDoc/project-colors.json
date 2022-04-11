@@ -10,7 +10,17 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Прочие файлы",
       "ColorIndex": -1
+    },
+    "04fad184-41ef-4b27-a1d5-9e59594f61b5": {
+      "ProjectGuid": "04fad184-41ef-4b27-a1d5-9e59594f61b5",
+      "DisplayName": "MVVMTests",
+      "ColorIndex": 1
+    },
+    "506f0481-9108-42cc-a789-8a0bef0241bb": {
+      "ProjectGuid": "506f0481-9108-42cc-a789-8a0bef0241bb",
+      "DisplayName": "MVVMTest",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

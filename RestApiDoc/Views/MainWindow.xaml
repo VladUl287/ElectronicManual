@@ -33,11 +33,8 @@
             <Button Click="BtnSideBarToggle_Click">
                 <Image Source="/RestApiDoc;component/Data/menu.png" />
             </Button>
-            <Button Click="BtnManagment_Click">
+            <Button Click="BtnHelp_Click">
                 <Image Source="/RestApiDoc;component/Data/book_small.png" Width="22" Height=" 22" />
-            </Button>
-            <Button Click="BtnProgrammInfo_Click">
-                <Image Source="/RestApiDoc;component/Data/info.png"/>
             </Button>
             <Button Click="BtnAdminWindow_Click">
                 <Image Source="/RestApiDoc;component/Data/admin.png" />
@@ -62,7 +59,8 @@
                             <StackPanel>
                                 <ListView Foreground="#fff" 
                                           ItemsSource="{Binding Partitions}" 
-                                          SelectedItem="{Binding Path=DataContext.SelectedPartition, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                          SelectedItem="{Binding Path=DataContext.SelectedPartition, Mode=TwoWay, 
+                                            RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                                     <ListView.ItemTemplate>
                                         <DataTemplate>

@@ -1,5 +1,7 @@
 ﻿using RestApiDoc.ViewModels;
 using RestApiDoc.Views;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -27,7 +29,6 @@ namespace RestApiDoc
             if (e.PropertyName == "SelectedTest" && mainViewModel.SelectedTest is not null)
             {
                 IocService.Get<TestsWindow>()?.ShowDialog();
-                //new TestsWindow(mainViewModel).ShowDialog();
                 mainViewModel.SelectedTest = null;
             }
         }
@@ -45,14 +46,21 @@ namespace RestApiDoc
             }
         }
 
-        private void BtnManagment_Click(object sender, RoutedEventArgs e)
+        private void BtnHelp_Click(object sender, RoutedEventArgs e)
         {
-            OpenAdditionalFile("Data/Additional/managment.rtf");
-        }
-
-        private void BtnProgrammInfo_Click(object sender, RoutedEventArgs e)
-        {
-            OpenAdditionalFile("Data/Additional/managment.rtf");
+            try
+            {
+                var info = new FileInfo("Data/ReferenceInformation.chm");
+                if (info.Exists)
+                {
+                    System.Windows.Forms.Help.ShowHelp(null, info.FullName);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка открытия справочной информации", 
+                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void SetRtfText(string rtf)
@@ -61,18 +69,16 @@ namespace RestApiDoc
             PartitionTextRtb.Selection.Load(stream, DataFormats.Rtf);
         }
 
-        private void OpenAdditionalFile(string name)
-        {
-            if (File.Exists(name))
-            {
-                using var fs = new FileStream(name, FileMode.Open);
-                PartitionTextRtb.Selection.Load(fs, DataFormats.Rtf);
-            }
-        }
-
         private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
         {
-            IocService.Get<AdminWindow>()?.ShowDialog();
+            if (LoginViewModel.AuthUser is null)
+            {
+                IocService.Get<AuthWindow>()?.ShowDialog();
+            }
+            else if(LoginViewModel.AuthUser.IsAdmin)
+            {
+                IocService.Get<AdminWindow>()?.ShowDialog();
+            }
         }
     }
 }

@@ -31,13 +31,6 @@
             <TextBox Text="{Binding Email}"></TextBox>
             <Label Content="Пароль"></Label>
             <TextBox Text="{Binding Password}"></TextBox>
-            <ListBox ItemsSource="{Binding LoginErrors}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding .}"></TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
             <Button Content="Войти" Command="{Binding LoginCommand}"></Button>
         </StackPanel>
         <StackPanel x:Name="registerForm" Grid.Column="1" Margin="20 0">

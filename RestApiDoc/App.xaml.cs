@@ -26,6 +26,7 @@ namespace RestApiDoc
             services.AddSingleton<MainWindow>();
             services.AddTransient<TestsWindow>();
             services.AddTransient<AdminWindow>();
+            services.AddTransient<AuthWindow>();
 
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<AdminViewModel>();
