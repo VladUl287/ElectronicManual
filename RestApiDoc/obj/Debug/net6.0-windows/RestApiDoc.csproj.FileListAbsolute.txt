@@ -101,7 +101,6 @@ C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Controls\RichTextBoxEditor.g.cs
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\AdminWindow.g.cs
 C:\Users\User\Downloads\Практика 4\RestApiDoc\RestApiDoc\obj\Debug\net6.0-windows\Views\AuthWindow.g.cs
