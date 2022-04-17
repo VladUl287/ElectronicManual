@@ -13,8 +13,6 @@
     <None Remove="Data\bold.png" />
     <None Remove="Data\book.png" />
     <None Remove="Data\book_small.png" />
-    <None Remove="Data\feed.png" />
-    <None Remove="Data\info.png" />
     <None Remove="Data\italics.png" />
     <None Remove="Data\menu.png" />
     <None Remove="Data\ReferenceInformation.chm" />
@@ -28,20 +26,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Data\admin.png" />
-    <Resource Include="Data\bold.png" />
-    <Resource Include="Data\book_small.png" />
-    <Resource Include="Data\feed.png" />
-    <Resource Include="Data\info.png" />
-    <Resource Include="Data\italics.png" />
-    <Resource Include="Data\menu.png" />
-    <Resource Include="Data\underline.png" />
+    <Resource Include="Data\icons\admin.png" />
+    <Resource Include="Data\icons\bold.png" />
+    <Resource Include="Data\icons\book_small.png" />
+    <Resource Include="Data\icons\italics.png" />
+    <Resource Include="Data\icons\menu.png" />
+    <Resource Include="Data\icons\underline.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.4.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 

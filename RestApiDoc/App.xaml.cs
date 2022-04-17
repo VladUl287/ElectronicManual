@@ -21,7 +21,7 @@ namespace RestApiDoc
             services.AddDbContext<DatabaseContext>(options =>
             {
                 options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=RestAppDb;Trusted_connection=true");
-            }, ServiceLifetime.Transient);
+            });
 
             services.AddSingleton<MainWindow>();
             services.AddTransient<TestsWindow>();
@@ -32,7 +32,6 @@ namespace RestApiDoc
             services.AddSingleton<AdminViewModel>();
 
             services.AddSingleton<LoginViewModel>();
-            services.AddSingleton<RegisterViewModel>();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)

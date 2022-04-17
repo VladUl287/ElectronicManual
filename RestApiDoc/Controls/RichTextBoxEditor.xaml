@@ -10,13 +10,13 @@
         <DockPanel>
             <ToolBar DockPanel.Dock="Top">
                 <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
-                    <Image Source="/RestApiDoc;component/Data/bold.png" Width="16" Height="16" />
+                    <Image Source="/RestApiDoc;component/Data/icons/bold.png" Width="16" Height="16" />
                 </ToggleButton>
                 <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
-                    <Image Source="/Data/italics.png" Width="16" Height="16" />
+                    <Image Source="/Data/icons/italics.png" Width="16" Height="16" />
                 </ToggleButton>
                 <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
-                    <Image Source="/Data/underline.png" Width="16" Height="16" />
+                    <Image Source="/Data/icons/underline.png" Width="16" Height="16" />
                 </ToggleButton>
                 <Separator />
                 <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="CmbFontFamily_SelectionChanged">
@@ -29,7 +29,11 @@
                 </ComboBox>
                 <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="CmbFontSize_TextChanged" />
             </ToolBar>
-            <RichTextBox Name="rtbEditor" SelectionChanged="RtbEditor_SelectionChanged" TextChanged="RtbEditor_TextChanged" />
+            <RichTextBox Name="rtbEditor"
+                         SelectionChanged="RtbEditor_SelectionChanged" 
+                         Foreground="#000" 
+                         Background="#ced4da" 
+                         TextChanged="RtbEditor_TextChanged" />
         </DockPanel>
     </Grid>
 </UserControl>

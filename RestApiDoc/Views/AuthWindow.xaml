@@ -3,51 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestApiDoc.Views"
+        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
-        Title="AuthWindow" Height="450" Width="800" Background="#2b373d">
+        Title="AuthWindow" MinHeight="250" MaxHeight="300" MinWidth="400" MaxWidth="500" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-            <Setter Property="Margin" Value="0 0 0 20"></Setter>
-            <Setter Property="Foreground" Value="#fff"></Setter>
-            <Setter Property="BorderBrush" Value="#fff"></Setter>
+            <Setter Property="Margin" Value="0 0 0 20"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="BorderBrush" Value="#fff"/>
         </Style>
         <Style TargetType="Label">
-            <Setter Property="Foreground" Value="#fff"></Setter>
+            <Setter Property="Foreground" Value="#fff"/>
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-            <Setter Property="Control.BorderThickness" Value="0" />
-            <Setter Property="Control.Background" Value="#00b4d8" />
-            <Setter Property="Control.Foreground" Value="#fff" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="Background" Value="#00b4d8"/>
         </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel x:Name="loginForm" Grid.Column="0" Margin="20 0">
-            <Label Content="Email"></Label>
-            <TextBox Text="{Binding Email}"></TextBox>
-            <Label Content="Пароль"></Label>
-            <TextBox Text="{Binding Password}"></TextBox>
-            <Button Content="Войти" Command="{Binding LoginCommand}"></Button>
-        </StackPanel>
-        <StackPanel x:Name="registerForm" Grid.Column="1" Margin="20 0">
-            <Label Content="Email"></Label>
-            <TextBox Text="{Binding Email}"></TextBox>
-            <Label Content="Пароль"></Label>
-            <TextBox Text="{Binding Password}"></TextBox>
-            <Label Content="Подтвержение пароля"></Label>
-            <TextBox Text="{Binding ConfirmPassword}"></TextBox>
-            <ListBox ItemsSource="{Binding RegErrors}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding .}"></TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <Button Content="Зарегистрироваться" Command="{Binding RegCommand}"></Button>
-        </StackPanel>
-    </Grid>
+    <StackPanel x:Name="loginForm" Grid.Column="0" Margin="20 0 20 20">
+        <Label Content="Email"/>
+        <TextBox Text="{Binding Email}"></TextBox>
+        <Label Content="Пароль"/>
+        <TextBox Text="{Binding Password}"></TextBox>
+        <Button Content="Войти" Command="{Binding LoginCommand}"></Button>
+    </StackPanel>
 </Window>

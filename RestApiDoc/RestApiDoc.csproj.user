@@ -19,9 +19,6 @@
     <Compile Update="Views\TestWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UpdateWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\RichTextBoxEditor.xaml">
@@ -37,9 +34,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TestWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\UpdateWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

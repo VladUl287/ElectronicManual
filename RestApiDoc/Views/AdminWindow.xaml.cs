@@ -2,6 +2,8 @@
 using RestApiDoc.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -27,21 +29,17 @@ namespace RestApiDoc.Views
         {
             if (e.PropertyName == "SelectedPartition" && adminViewModel.SelectedPartition is not null)
             {
-                new UpdateWindow(adminViewModel).ShowDialog();
+                partitionText.SetRtf(adminViewModel.SelectedPartition.Text);
             }
         }
 
-        private void BtnCreatePartition_Click(object sender, RoutedEventArgs e)
+        private void BtnPartitionUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (adminViewModel.SelectedChapter is not null)
+            if (adminViewModel.SelectedPartition is not null)
             {
-                var partition = new Partition
-                {
-                    Name = partitionName.Text,
-                    Text = partitionText.Rtf
-                };
+                adminViewModel.SelectedPartition.Text = partitionText.Rtf;
 
-                adminViewModel.AddPartitionCommand.Execute(partition);
+                adminViewModel.EditPartitionCommand.Execute(null);
             }
         }
 

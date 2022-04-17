@@ -1,7 +1,5 @@
 ﻿using RestApiDoc.ViewModels;
 using RestApiDoc.Views;
-using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -71,14 +69,15 @@ namespace RestApiDoc
 
         private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
         {
-            if (LoginViewModel.AuthUser is null)
-            {
-                IocService.Get<AuthWindow>()?.ShowDialog();
-            }
-            else if(LoginViewModel.AuthUser.IsAdmin)
-            {
-                IocService.Get<AdminWindow>()?.ShowDialog();
-            }
+            IocService.Get<AdminWindow>()?.ShowDialog();
+            //if (LoginViewModel.AuthUser is null)
+            //{
+            //    IocService.Get<AuthWindow>()?.ShowDialog();
+            //}
+            //else if(LoginViewModel.AuthUser.IsAdmin)
+            //{
+            //    IocService.Get<AdminWindow>()?.ShowDialog();
+            //}
         }
     }
 }

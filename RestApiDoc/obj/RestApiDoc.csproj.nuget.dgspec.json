@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj": {}
+    "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\RestApiDoc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj": {
+    "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\RestApiDoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\RestApiDoc.csproj",
         "projectName": "RestApiDoc",
-        "projectPath": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\RestApiDoc.csproj",
+        "projectPath": "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\RestApiDoc.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Downloads\\Практика 4\\RestApiDoc\\RestApiDoc\\obj\\",
+        "outputPath": "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,13 +44,9 @@
               "target": "Package",
               "version": "[4.4.0, )"
             },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[6.0.3, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.4, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
@@ -75,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

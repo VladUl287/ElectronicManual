@@ -59,16 +59,16 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" MinWidth="250"/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <ListBox x:Name="chaptersList" ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}" 
-                                         Grid.Column="0" Grid.RowSpan="2" MinWidth="250" MaxHeight="100">
+                                         Grid.Column="0" Grid.RowSpan="2" MaxHeight="150" MaxWidth="350">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" Foreground="#fff"/>
+                                            <TextBlock Text="{Binding Name}" Foreground="#fff" TextWrapping="Wrap"/>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -97,7 +97,7 @@
                                     <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="250"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto" MinWidth="250" MaxWidth="350" ></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
@@ -107,19 +107,29 @@
                                          Grid.RowSpan="3">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" Foreground="#fff"/>
+                                            <TextBlock Text="{Binding Name}" Foreground="#fff" TextWrapping="Wrap"/>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
 
-                                <TextBox x:Name="partitionName" Grid.Row="0" Grid.Column="1"/>
+                                <TextBox Text="{Binding SelectedPartition.Name, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
                                 <controls:RichTextBoxEditor x:Name="partitionText" Grid.Row="1" Grid.Column="1"/>
-                                <Button Content="Добавить" 
+                                <StackPanel
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Right">
+                                    <Button Content="Удалить"
                                         Margin="5"
-                                        Grid.Row="2"
-                                        Grid.Column="1"
+                                        Command="{Binding DeletePartitionCommand}"/>
+                                    <Button Content="Обновить"
+                                        Margin="5"
+                                        Click="BtnPartitionUpdate_Click"/>
+                                    <Button Content="Добавить"
+                                        Margin="5"
                                         Name="BtnCreatePartition" 
-                                        Click="BtnCreatePartition_Click"/>
+                                        Command="{Binding AddPartitionCommand}"/>
+                                </StackPanel>
                             </Grid>
                         </GroupBox>
                     </Grid>

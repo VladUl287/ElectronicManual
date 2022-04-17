@@ -19,7 +19,14 @@ namespace RestApiDoc.ViewModels
 
         public AdminViewModel(DatabaseContext dbContext) : base(dbContext)
         {
-            SetUsers();
+            Initilize();
+        }
+
+        protected override async Task Initilize()
+        {
+            await base.Initilize();
+            Users = new(await dbContext.Users.ToListAsync());
+
         }
 
         public async Task SetUsers()
@@ -65,7 +72,7 @@ namespace RestApiDoc.ViewModels
             {
                 return addChapterCommand ??= new RelayCommand(async (name) =>
                 {
-                    var chapterName = (string)name;
+                    var chapterName = name.ToString();
                     if (string.IsNullOrEmpty(chapterName))
                     {
                         return;
@@ -154,7 +161,7 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return addPartitionCommand ??= new RelayCommand(async (pt) =>
+                return addPartitionCommand ??= new RelayCommand(async (_) =>
                 {
                     try
                     {
@@ -163,14 +170,14 @@ namespace RestApiDoc.ViewModels
                             return;
                         }
 
-                        if (pt is Partition partition)
+                        var partition = new Partition
                         {
-                            partition.ChapterId = SelectedChapter.Id;
-
-                            await dbContext.Partitions.AddAsync(partition);
-                            await dbContext.SaveChangesAsync();
-                            SelectedChapter.Partitions.Add(partition);
-                        }
+                            Name = "Название",
+                            ChapterId = SelectedChapter.Id,
+                        };
+                        await dbContext.Partitions.AddAsync(partition);
+                        await dbContext.SaveChangesAsync();
+                        SelectedChapter.Partitions.Add(partition);
                     }
                     catch (DbUpdateException)
                     {
