@@ -26,7 +26,6 @@ namespace RestApiDoc.ViewModels
         {
             await base.Initilize();
             Users = new(await dbContext.Users.ToListAsync());
-
         }
 
         public async Task SetUsers()
@@ -87,6 +86,7 @@ namespace RestApiDoc.ViewModels
 
                         await dbContext.Chapters.AddAsync(chapter);
                         await dbContext.SaveChangesAsync();
+                        Chapters.Remove(chapter);
                         Chapters.Add(chapter);
                     }
                     catch (DbUpdateException)
@@ -175,8 +175,10 @@ namespace RestApiDoc.ViewModels
                             Name = "Название",
                             ChapterId = SelectedChapter.Id,
                         };
+
                         await dbContext.Partitions.AddAsync(partition);
                         await dbContext.SaveChangesAsync();
+                        SelectedChapter.Partitions.Remove(partition);
                         SelectedChapter.Partitions.Add(partition);
                     }
                     catch (DbUpdateException)
@@ -271,6 +273,8 @@ namespace RestApiDoc.ViewModels
 
                             await dbContext.Tests.AddAsync(test);
                             await dbContext.SaveChangesAsync();
+                            SelectedChapter.Tests.Remove(test);
+                            SelectedChapter.Tests.Add(test);
                         }
                     }
                     catch (DbUpdateException)
@@ -423,12 +427,16 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return updateUserCommand ??= new RelayCommand(async (user) =>
+                return updateUserCommand ??= new RelayCommand(async (us) =>
                 {
                     try
                     {
-                        var us = (User)user;
-                        dbContext.Users.Update(us);
+                        if (us is not User user)
+                        {
+                            return;
+                        }
+
+                        dbContext.Users.Update(user);
                         await dbContext.SaveChangesAsync();
                     }
                     catch (DbUpdateException)
@@ -444,14 +452,18 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return deleteUserCommand ??= new RelayCommand(async (user) =>
+                return deleteUserCommand ??= new RelayCommand(async (us) =>
                 {
                     try
                     {
-                        var us = (User)user;
-                        dbContext.Users.Remove(us);
+                        if (us is not User user)
+                        {
+                            return;
+                        }
+
+                        dbContext.Users.Remove(user);
                         await dbContext.SaveChangesAsync();
-                        Users.Remove(us);
+                        Users.Remove(user);
                     }
                     catch (DbUpdateException)
                     {

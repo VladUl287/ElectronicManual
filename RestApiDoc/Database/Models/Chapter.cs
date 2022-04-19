@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 
 namespace RestApiDoc.Database.Models
 {
-    public record Chapter
+    public class Chapter
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public ObservableCollection<Test> Tests { get; set; }
-        public ObservableCollection<Partition> Partitions { get; set; }
+        public ObservableCollection<Test> Tests { get; set; } = new();
+        public ObservableCollection<Partition> Partitions { get; set; } = new();
     }
 }

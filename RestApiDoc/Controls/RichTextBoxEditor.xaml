@@ -3,31 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RestApiDoc.Controls"
+             xmlns:local="clr-namespace:RestApiDoc.Controls" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="ComboBox"/>
+    </UserControl.Resources>
     <Grid>
         <DockPanel>
-            <ToolBar DockPanel.Dock="Top">
-                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
-                    <Image Source="/RestApiDoc;component/Data/icons/bold.png" Width="16" Height="16" />
-                </ToggleButton>
-                <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
-                    <Image Source="/Data/icons/italics.png" Width="16" Height="16" />
-                </ToggleButton>
-                <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
-                    <Image Source="/Data/icons/underline.png" Width="16" Height="16" />
-                </ToggleButton>
+            <ToolBar DockPanel.Dock="Top" Padding="2">
+                <ListBox Style="{DynamicResource MaterialDesignToolToggleListBox}">
+                    <ListBox.Items>
+                        <ListBoxItem Content="{md:PackIcon FormatBold}" Padding="0"/>
+                        <ListBoxItem Content="{md:PackIcon FormatItalic}" Padding="0"/>
+                        <ListBoxItem Content="{md:PackIcon FormatUnderline}" Padding="0"/>
+                    </ListBox.Items>
+                </ListBox>
                 <Separator />
-                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="CmbFontFamily_SelectionChanged">
+                <ComboBox Name="cmbFontFamily" MinWidth="150" SelectionChanged="CmbFontFamily_SelectionChanged">
+                    <ComboBox.Style>
+                        <Style/>
+                    </ComboBox.Style>
                     <ComboBox.ItemContainerStyle>
                         <Style TargetType="{x:Type ComboBoxItem}">
-                            <Setter Property="Background" Value="Blue" />
-                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Foreground" Value="#000" />
                         </Style>
                     </ComboBox.ItemContainerStyle>
                 </ComboBox>
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="CmbFontSize_TextChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="CmbFontSize_TextChanged">
+                    <ComboBox.Style>
+                        <Style/>
+                    </ComboBox.Style>
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ComboBoxItem}">
+                            <Setter Property="Foreground" Value="#000" />
+                            <Setter Property="Background" Value="Red" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
             </ToolBar>
             <RichTextBox Name="rtbEditor"
                          SelectionChanged="RtbEditor_SelectionChanged" 

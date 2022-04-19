@@ -1852,11 +1852,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\RestApiDoc.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Downloads\\Диплом\\ElectronicManual\\RestApiDoc\\RestApiDoc.csproj",
       "projectName": "RestApiDoc",
-      "projectPath": "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\RestApiDoc.csproj",
+      "projectPath": "C:\\Users\\User\\Downloads\\Диплом\\ElectronicManual\\RestApiDoc\\RestApiDoc.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Downloads\\Диплом\\Программа\\RestApiDoc\\obj\\",
+      "outputPath": "C:\\Users\\User\\Downloads\\Диплом\\ElectronicManual\\RestApiDoc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -9,6 +9,6 @@ namespace RestApiDoc.Database.Models
         public string Name { get; set; } = string.Empty;
         public int ChapterId { get; set; }
         public Chapter Chapter { get; set; }
-        public ObservableCollection<Question> Questions { get; set; }
+        public ObservableCollection<Question> Questions { get; set; } = new();
     }
 }

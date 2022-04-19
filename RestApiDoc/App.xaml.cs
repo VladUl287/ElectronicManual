@@ -29,7 +29,7 @@ namespace RestApiDoc
             services.AddTransient<AuthWindow>();
 
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<AdminViewModel>();
+            services.AddTransient<AdminViewModel>();
 
             services.AddSingleton<LoginViewModel>();
         }

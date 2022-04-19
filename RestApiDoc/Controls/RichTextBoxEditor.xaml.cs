@@ -23,11 +23,11 @@ namespace RestApiDoc.Controls
 		private void RtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
 		{
 			object temp = rtbEditor.Selection.GetPropertyValue(TextElement.FontWeightProperty);
-			btnBold.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold));
+			//btnBold.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold));
 			temp = rtbEditor.Selection.GetPropertyValue(TextElement.FontStyleProperty);
-			btnItalic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
+			//btnItalic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
 			temp = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
-			btnUnderline.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline));
+			//btnUnderline.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline));
 
 			temp = rtbEditor.Selection.GetPropertyValue(TextElement.FontFamilyProperty);
 			cmbFontFamily.SelectedItem = temp;
@@ -65,5 +65,5 @@ namespace RestApiDoc.Controls
 			var stream = new MemoryStream(Encoding.Default.GetBytes(text));
 			rtbEditor.Selection.Load(stream, DataFormats.Rtf);
 		}
-    }
+	}
 }

@@ -22,26 +22,49 @@ namespace RestApiDoc.Database
             modelBuilder.Entity<Chapter>(entity =>
             {
                 entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Partition>(entity =>
             {
                 entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Text)
+                    .IsRequired();
             });
 
             modelBuilder.Entity<Test>(entity =>
             {
                 entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Question>(entity =>
             {
                 entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Answer>(entity =>
             {
                 entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<User>(entity =>
