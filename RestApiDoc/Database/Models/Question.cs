@@ -8,8 +8,6 @@ namespace RestApiDoc.Database.Models
     {
         public int Id { get; set; }
         public QuestionType QuestionType { get; set; }
-        public bool IsMultiple { get; set; }
-        public bool IsUserAnswer { get; set; }
         public string Text { get; set; } = string.Empty;
         public int TestId { get; set; }
         public Test Test { get; set; }

@@ -201,7 +201,7 @@
                                 <StackPanel Grid.Column="1">
                                     <StackPanel>
                                         <TextBox MinWidth="150" Text="{Binding NewQuestion.Text}"/>
-                                        <Button Command="{Binding AddQuestionCommand}" Content="Добавить" Margin="10 0 10 0" />
+                                        <Button Click="Button_Click" Content="Добавить" Margin="10 0 10 0" />
                                         <Button Command="{Binding DeleteQuestionCommand}" Content="Удалить" Margin="10 10 10 0" />
                                         <StackPanel Orientation="Horizontal" Margin="10">
                                             <RadioButton x:Name="SingeRadioBtn"

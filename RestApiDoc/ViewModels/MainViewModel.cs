@@ -24,7 +24,7 @@ namespace RestApiDoc.ViewModels
             Initilize();
         }
 
-        protected virtual async Task Initilize()
+        public virtual async Task Initilize()
         {
             var chapters = await dbContext.Chapters
                .Include(e => e.Partitions)

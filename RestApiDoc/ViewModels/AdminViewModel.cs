@@ -22,7 +22,7 @@ namespace RestApiDoc.ViewModels
             Initilize();
         }
 
-        protected override async Task Initilize()
+        public override async Task Initilize()
         {
             await base.Initilize();
             Users = new(await dbContext.Users.ToListAsync());
@@ -271,7 +271,6 @@ namespace RestApiDoc.ViewModels
 
                             await dbContext.Tests.AddAsync(test);
                             await dbContext.SaveChangesAsync();
-                            SelectedChapter.Tests.Add(test);
                         }
                     }
                     catch (DbUpdateException)
@@ -339,7 +338,7 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return addQuestionCommand ??= new RelayCommand(async (pt) =>
+                return addQuestionCommand ??= new RelayCommand((pt) =>
                 {
                     try
                     {
@@ -356,8 +355,9 @@ namespace RestApiDoc.ViewModels
                         NewQuestion.TestId = SelectedTest.Id;
 
                         var question = NewQuestion;
-                        await dbContext.Questions.AddAsync(question);
-                        await dbContext.SaveChangesAsync();
+                        dbContext.Questions.Add(question);
+                        dbContext.SaveChanges();
+                        SelectedTest.Questions.Remove(question);
                         SelectedTest.Questions.Add(question);
                         NewQuestion = new();
                     }

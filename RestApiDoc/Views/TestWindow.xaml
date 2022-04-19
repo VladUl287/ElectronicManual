@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestApiDoc.Views" xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RestApiDoc.Views.TestsWindow"
+        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" x:Class="RestApiDoc.Views.TestsWindow"
         d:DataContext="{d:DesignInstance Type={x:Type viewmodels:MainViewModel}}"
         mc:Ignorable="d"
         Title="TestsWindow" Height="560" Width="900" Background="#2b373d">

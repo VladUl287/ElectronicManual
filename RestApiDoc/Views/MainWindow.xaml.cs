@@ -18,7 +18,7 @@ namespace RestApiDoc
             mainViewModel.PropertyChanged += ChapterViewModel_PropertyChanged;
         }
 
-        private void ChapterViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void ChapterViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "SelectedPartition" && mainViewModel.SelectedPartition is not null)
             {
@@ -67,9 +67,10 @@ namespace RestApiDoc
             PartitionTextRtb.Selection.Load(stream, DataFormats.Rtf);
         }
 
-        private void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
+        private async void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
         {
             IocService.Get<AdminWindow>()?.ShowDialog();
+            await mainViewModel.Initilize();
             //if (LoginViewModel.AuthUser is null)
             //{
             //    IocService.Get<AuthWindow>()?.ShowDialog();

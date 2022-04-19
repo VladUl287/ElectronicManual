@@ -76,7 +76,7 @@ namespace RestApiDoc.Views
             }
             else if (radio.Name == "MultipleRadioBtn")
             {
-                var listAnswers = new List<Answer>();
+                var listAnswers = new List<Answer>(4);
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -112,7 +112,7 @@ namespace RestApiDoc.Views
             }
             else
             {
-                var listAnswers = new List<Answer>();
+                var listAnswers = new List<Answer>(4);
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -147,6 +147,13 @@ namespace RestApiDoc.Views
                 adminViewModel.NewQuestion.Answers.Clear();
                 adminViewModel.NewQuestion.Answers.AddRange(listAnswers);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            adminViewModel.AddQuestionCommand.Execute(null);
+            SingeRadioBtn.IsChecked = false;
+            SingeRadioBtn.IsChecked = true;
         }
     }
 }

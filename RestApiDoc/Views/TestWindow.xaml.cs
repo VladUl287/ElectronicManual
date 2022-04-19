@@ -20,12 +20,7 @@ namespace RestApiDoc.Views
             InitializeComponent();
             DataContext = mainViewModel;
 
-            if (mainViewModel.SelectedTest is null)
-            {
-                Close();
-            }
-
-            questions = mainViewModel.SelectedTest!.Questions.ToArray();
+            questions = mainViewModel.SelectedTest.Questions.ToArray();
             Shuffle(questions);
             questions = questions.Take(10).ToArray();
 
@@ -68,7 +63,7 @@ namespace RestApiDoc.Views
 
             stackPanel.Children.Add(label);
 
-            if (question.IsUserAnswer)
+            if (question.QuestionType == QuestionType.UserAnswer)
             {
                 var textBox = new TextBox
                 {
@@ -82,7 +77,7 @@ namespace RestApiDoc.Views
             {
                 var answers = question.Answers.ToArray();
 
-                if (question.IsMultiple)
+                if (question.QuestionType == QuestionType.Multiple)
                 {
                     var rightAnswers = question.Answers.Select(e => new { e.Text, e.IsRight }).ToArray();
 
@@ -155,8 +150,8 @@ namespace RestApiDoc.Views
             timer.Stop();
 
             byte result = 5;
-            var count = questions.Count(x => x.IsRight) * 100;
-            var percent = count / questions.Length;
+            var count = questions.Count(x => x.IsRight);
+            var percent = count * 100 / questions.Length;
             if (percent < 60)
             {
                 result = 2;

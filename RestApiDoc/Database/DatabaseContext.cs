@@ -7,7 +7,7 @@ namespace RestApiDoc.Database
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOpt) : base(dbContextOpt)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         public DbSet<Chapter> Chapters { get; init; }
