@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\App.xaml
-5-1091173584
+8-1595746500
 12099246048
-21-1495476948
+261617104814
 225-24505668
-Controls\RichTextBoxEditor.xaml;Views\AdminWindow.xaml;Views\AuthWindow.xaml;Views\MainWindow.xaml;Views\TestWindow.xaml;
+Controls\RichTextBoxEditor.xaml;Pages\AdminChaptersPage.xaml;Pages\AdminTestsPage.xaml;Pages\AdminUsersPage.xaml;Views\AdminWindow.xaml;Views\AuthWindow.xaml;Views\MainWindow.xaml;Views\TestWindow.xaml;
 
-False
+True
 

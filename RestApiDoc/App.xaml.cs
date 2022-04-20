@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RestApiDoc.Database;
+using RestApiDoc.Pages;
 using RestApiDoc.ViewModels;
 using RestApiDoc.Views;
 using System.Windows;
@@ -23,15 +24,19 @@ namespace RestApiDoc
                 options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=RestAppDb;Trusted_connection=true");
             });
 
-            services.AddSingleton<MainWindow>();
+            services.AddTransient<MainWindow>();
             services.AddTransient<TestsWindow>();
             services.AddTransient<AdminWindow>();
             services.AddTransient<AuthWindow>();
 
             services.AddSingleton<MainViewModel>();
-            services.AddTransient<AdminViewModel>();
+            services.AddSingleton<TheoryViewModel>();
+            services.AddSingleton<UserViewModel>();
+            services.AddSingleton<AuthViewModel>();
 
-            services.AddSingleton<LoginViewModel>();
+            services.AddSingleton<AdminChaptersPage>();
+            services.AddSingleton<AdminTestsPage>();
+            services.AddSingleton<AdminUsersPage>();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)

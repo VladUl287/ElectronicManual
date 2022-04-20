@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RestApiDoc.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : BaseViewModel
     {
         private Test? selectedTest;
         private Chapter? selectedChapter;
@@ -24,7 +24,7 @@ namespace RestApiDoc.ViewModels
             Initilize();
         }
 
-        public virtual async Task Initilize()
+        public async Task Initilize()
         {
             var chapters = await dbContext.Chapters
                .Include(e => e.Partitions)
@@ -78,6 +78,7 @@ namespace RestApiDoc.ViewModels
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged is not null)

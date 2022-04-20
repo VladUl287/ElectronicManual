@@ -1,36 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace RestApiDoc.ViewModels
 {
-    public class AdminViewModel : MainViewModel
+    public class TheoryViewModel : MainViewModel
     {
         private Question selectedQuestion;
         private Question newQuestion = new();
-        public ObservableCollection<User> users { get; set; }
 
-        public AdminViewModel(DatabaseContext dbContext) : base(dbContext)
+        public TheoryViewModel(DatabaseContext dbContext) : base(dbContext)
         {
-            Initilize();
-        }
-
-        public override async Task Initilize()
-        {
-            await base.Initilize();
-            Users = new(await dbContext.Users.ToListAsync());
-        }
-
-        public async Task SetUsers()
-        {
-            Users = new(await dbContext.Users.ToListAsync());
         }
 
         public Question NewQuestion
@@ -53,18 +35,9 @@ namespace RestApiDoc.ViewModels
             }
         }
 
-        public ObservableCollection<User> Users
-        {
-            get { return users; }
-            set
-            {
-                users = value;
-                OnPropertyChanged("Users");
-            }
-        }
-
         //Chapters commands
         private RelayCommand addChapterCommand;
+
         public RelayCommand AddChapterCommand
         {
             get
@@ -98,6 +71,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand editChapterCommand;
+
         public RelayCommand EditChapterCommand
         {
             get
@@ -123,6 +97,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand deleteChapterCommand;
+
         public RelayCommand DeleteChapterCommand
         {
             get
@@ -134,7 +109,7 @@ namespace RestApiDoc.ViewModels
                         return;
                     }
 
-                    var result = MessageBox.Show("Вы уверены что хотите удалить главу?", "Оповещение", MessageBoxButton.YesNo, 
+                    var result = MessageBox.Show("Вы уверены что хотите удалить главу?", "Оповещение", MessageBoxButton.YesNo,
                         MessageBoxImage.Question, MessageBoxResult.No);
                     if (result == MessageBoxResult.No)
                     {
@@ -157,6 +132,7 @@ namespace RestApiDoc.ViewModels
 
         //Partitions commands
         private RelayCommand addPartitionCommand;
+
         public RelayCommand AddPartitionCommand
         {
             get
@@ -190,6 +166,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand editPartitionCommand;
+
         public RelayCommand EditPartitionCommand
         {
             get
@@ -215,6 +192,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand deletePartitionCommand;
+
         public RelayCommand DeletePartitionCommand
         {
             get
@@ -249,6 +227,7 @@ namespace RestApiDoc.ViewModels
 
         //Tests commands
         private RelayCommand addTestCommand;
+
         public RelayCommand AddTestCommand
         {
             get
@@ -286,6 +265,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand editTestCommand;
+
         public RelayCommand EditTestCommand
         {
             get
@@ -311,6 +291,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand deleteTestCommand;
+
         public RelayCommand DeleteTestCommand
         {
             get
@@ -338,6 +319,7 @@ namespace RestApiDoc.ViewModels
 
         //Questions commands
         private RelayCommand addQuestionCommand;
+
         public RelayCommand AddQuestionCommand
         {
             get
@@ -374,6 +356,7 @@ namespace RestApiDoc.ViewModels
         }
 
         private RelayCommand deleteQuestionCommand;
+
         public RelayCommand DeleteQuestionCommand
         {
             get
@@ -398,80 +381,5 @@ namespace RestApiDoc.ViewModels
                 });
             }
         }
-
-        //User commands
-        private RelayCommand createUserCommand;
-        public RelayCommand CreateUserCommand
-        {
-            get
-            {
-                return createUserCommand ??= new RelayCommand(async (_) =>
-                {
-                    try
-                    {
-                        var user = new User();
-                        await dbContext.Users.AddAsync(user);
-                        await dbContext.SaveChangesAsync();
-                        Users.Add(user);
-                    }
-                    catch (DbUpdateException)
-                    {
-                        MessageBox.Show("Ошибка создания пользователя.");
-                    }
-                });
-            }
-        }
-
-        private RelayCommand updateUserCommand;
-        public RelayCommand UpdateUserCommand
-        {
-            get
-            {
-                return updateUserCommand ??= new RelayCommand(async (us) =>
-                {
-                    try
-                    {
-                        if (us is not User user)
-                        {
-                            return;
-                        }
-
-                        dbContext.Users.Update(user);
-                        await dbContext.SaveChangesAsync();
-                    }
-                    catch (DbUpdateException)
-                    {
-                        MessageBox.Show("Ошибка обновления пользователя.");
-                    }
-                });
-            }
-        }
-
-        private RelayCommand deleteUserCommand;
-        public RelayCommand DeleteUserCommand
-        {
-            get
-            {
-                return deleteUserCommand ??= new RelayCommand(async (us) =>
-                {
-                    try
-                    {
-                        if (us is not User user)
-                        {
-                            return;
-                        }
-
-                        dbContext.Users.Remove(user);
-                        await dbContext.SaveChangesAsync();
-                        Users.Remove(user);
-                    }
-                    catch (DbUpdateException)
-                    {
-                        MessageBox.Show("Ошибка удаления пользователя.");
-                    }
-                });
-            }
-        }
-
     }
 }

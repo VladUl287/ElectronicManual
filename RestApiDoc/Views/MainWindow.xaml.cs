@@ -18,7 +18,7 @@ namespace RestApiDoc
             mainViewModel.PropertyChanged += ChapterViewModel_PropertyChanged;
         }
 
-        private async void ChapterViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void ChapterViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "SelectedPartition" && mainViewModel.SelectedPartition is not null)
             {
@@ -38,6 +38,7 @@ namespace RestApiDoc
                 case Visibility.Visible:
                     SideBarMenu.Visibility = Visibility.Collapsed;
                     break;
+
                 case Visibility.Collapsed:
                     SideBarMenu.Visibility = Visibility.Visible;
                     break;
@@ -56,7 +57,7 @@ namespace RestApiDoc
             }
             catch
             {
-                MessageBox.Show("Ошибка открытия справочной информации", 
+                MessageBox.Show("Ошибка открытия справочной информации",
                     "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

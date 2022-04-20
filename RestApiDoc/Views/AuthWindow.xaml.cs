@@ -5,10 +5,22 @@ namespace RestApiDoc.Views
 {
     public partial class AuthWindow : Window
     {
-        public AuthWindow(LoginViewModel loginViewModel)
+        private readonly AuthViewModel authViewModel;
+
+        public AuthWindow(AuthViewModel authViewModel)
         {
             InitializeComponent();
-            loginForm.DataContext = loginViewModel;
+            DataContext = authViewModel;
+            this.authViewModel = authViewModel;
+        }
+
+        private void BtnAuth_Click(object sender, RoutedEventArgs e)
+        {
+            authViewModel.LoginCommand.Execute(null);
+            if (AuthViewModel.IsAuth)
+            {
+                Close();
+            }
         }
     }
 }

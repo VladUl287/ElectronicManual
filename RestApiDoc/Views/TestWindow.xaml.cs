@@ -33,9 +33,11 @@ namespace RestApiDoc.Views
                     case QuestionType.Single:
                         seconds += 30;
                         break;
+
                     case QuestionType.Multiple:
                         seconds += 60;
                         break;
+
                     case QuestionType.UserAnswer:
                         seconds += 90;
                         break;
@@ -192,7 +194,6 @@ namespace RestApiDoc.Views
             }
             catch
             {
-
             }
         }
 
@@ -216,13 +217,11 @@ namespace RestApiDoc.Views
             }
             catch
             {
-
             }
         }
 
         private void RbAnswer_CheckedChanged(object sender, EventArgs e)
         {
-
             try
             {
                 var radio = (Answer)((RadioButton)sender).DataContext;
@@ -232,7 +231,6 @@ namespace RestApiDoc.Views
             }
             catch
             {
-
             }
         }
 
@@ -247,7 +245,6 @@ namespace RestApiDoc.Views
             }
             catch
             {
-
             }
         }
     }

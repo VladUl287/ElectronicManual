@@ -3,29 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
+        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:AuthViewModel}"
         mc:Ignorable="d"
-        Title="AuthWindow" MinHeight="250" MaxHeight="300" MinWidth="400" MaxWidth="500" Background="#2b373d">
+        Title="AuthWindow" Width="400" Background="#2b373d" ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-            <Setter Property="Margin" Value="0 0 0 20"/>
-            <Setter Property="Foreground" Value="#fff"/>
-            <Setter Property="BorderBrush" Value="#fff"/>
+            <Setter Property="Margin" Value="0 0 0 20" />
+            <Setter Property="Foreground" Value="#fff" />
+            <Setter Property="BorderBrush" Value="#fff" />
         </Style>
         <Style TargetType="Label">
-            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="Foreground" Value="#fff" />
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Foreground" Value="#fff"/>
-            <Setter Property="Background" Value="#00b4d8"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="#fff" />
+            <Setter Property="Background" Value="#00b4d8" />
         </Style>
     </Window.Resources>
-    <StackPanel x:Name="loginForm" Grid.Column="0" Margin="20 0 20 20">
-        <Label Content="Email"/>
-        <TextBox Text="{Binding Email}"></TextBox>
-        <Label Content="Пароль"/>
-        <TextBox Text="{Binding Password}"></TextBox>
-        <Button Content="Войти" Command="{Binding LoginCommand}"></Button>
-    </StackPanel>
+    <Grid Grid.Column="0" Margin="20 0 20 20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label Content="Email" />
+            <TextBox Text="{Binding Email}"/>
+            <Label Content="Пароль" />
+            <TextBox Text="{Binding Password}"/>
+        </StackPanel>
+        <Button Content="Войти" Click="BtnAuth_Click" Grid.Row="1"/>
+    </Grid>
 </Window>

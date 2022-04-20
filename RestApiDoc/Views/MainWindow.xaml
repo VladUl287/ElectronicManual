@@ -1,27 +1,27 @@
 ﻿<Window x:Class="RestApiDoc.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="560" Width="900" Background="#2b373d">
+        Title="MainWindow" Height="600" Width="1000" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Padding" Value="3"/>
-            <Setter Property="Margin" Value="6"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="Margin" Value="6" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
         </Style>
         <Style TargetType="Image">
-            <Setter Property="Width" Value="28"/>
-            <Setter Property="Height" Value="28"/>
+            <Setter Property="Width" Value="28" />
+            <Setter Property="Height" Value="28" />
         </Style>
         <Style TargetType="RichTextBox">
-            <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Foreground" Value="#000"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Background" Value="#ced4da"/>
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="#ced4da" />
         </Style>
     </Window.Resources>
     <Grid>
@@ -30,10 +30,10 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
             <Button Click="BtnSideBarToggle_Click">
                 <Image Source="/RestApiDoc;component/Data/icons/menu.png" />
@@ -46,11 +46,11 @@
             </Button>
         </StackPanel>
 
-        <ScrollViewer x:Name="SideBarMenu" 
-                      Grid.Row="1" 
-                      Grid.Column="0" 
-                      HorizontalAlignment="Stretch" 
-                      HorizontalScrollBarVisibility="Disabled" 
+        <ScrollViewer x:Name="SideBarMenu"
+                      Grid.Row="1"
+                      Grid.Column="0"
+                      HorizontalAlignment="Stretch"
+                      HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto">
             <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}">
                 <ListView.ItemContainerStyle>
@@ -62,27 +62,27 @@
                     <DataTemplate>
                         <Expander IsExpanded="False" HorizontalAlignment="Left" MinWidth="350" MaxWidth="350" Background="{x:Null}" Foreground="#fff">
                             <Expander.Header>
-                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" />
                             </Expander.Header>
                             <StackPanel>
-                                <ListView Foreground="#fff" 
-                                          ItemsSource="{Binding Partitions}" 
+                                <ListView Foreground="#fff"
+                                          ItemsSource="{Binding Partitions}"
                                           SelectedItem="{Binding Path=DataContext.SelectedPartition,
                                             RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
-                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" Padding="15 5 0 5"  TextWrapping="Wrap"/>
+                                            <TextBlock Text="{Binding Name}" Padding="15 5 0 5"  TextWrapping="Wrap" />
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
                                 <ListView Foreground="#fff"
-                                          ItemsSource="{Binding Tests}"  
+                                          ItemsSource="{Binding Tests}"
                                           SelectedItem="{Binding Path=DataContext.SelectedTest,RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
-                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" Padding="15 5 0 5"  TextWrapping="Wrap"/>
+                                            <TextBlock Text="{Binding Name}" Padding="15 5 0 5"  TextWrapping="Wrap" />
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
@@ -92,8 +92,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
-        <DockPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
-            <RichTextBox x:Name="PartitionTextRtb"/>
-        </DockPanel>
+        <RichTextBox x:Name="PartitionTextRtb" Grid.Row="1" Grid.Column="1" />
     </Grid>
 </Window>

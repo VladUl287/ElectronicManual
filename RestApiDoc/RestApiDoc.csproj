@@ -27,11 +27,8 @@
 
   <ItemGroup>
     <Resource Include="Data\icons\admin.png" />
-    <Resource Include="Data\icons\bold.png" />
     <Resource Include="Data\icons\book_small.png" />
-    <Resource Include="Data\icons\italics.png" />
     <Resource Include="Data\icons\menu.png" />
-    <Resource Include="Data\icons\underline.png" />
   </ItemGroup>
 
   <ItemGroup>
