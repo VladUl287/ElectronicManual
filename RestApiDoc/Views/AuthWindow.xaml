@@ -6,7 +6,7 @@
         xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewmodels:AuthViewModel}"
         mc:Ignorable="d"
-        Title="AuthWindow" Width="400" Background="#2b373d" ResizeMode="NoResize">
+        Title="AuthWindow" Width="400" Height="250" Background="#2b373d" ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="Margin" Value="0 0 0 20" />

@@ -30,7 +30,6 @@
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="Margin" Value="0 0 10 0" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="#00b4d8" />
         </Style>
         <Style TargetType="GroupBox">
             <Setter Property="Foreground" Value="#fff" />

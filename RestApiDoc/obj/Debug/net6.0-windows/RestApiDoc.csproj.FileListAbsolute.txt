@@ -329,7 +329,6 @@ C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.pdb
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.genruntimeconfig.cache
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
-C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Pages\AdminChaptersPage.g.cs
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Pages\AdminChaptersPage.baml
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Pages\AdminTestsPage.g.cs
