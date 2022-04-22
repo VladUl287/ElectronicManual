@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database.Models;
+using System.IO;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
 
 namespace RestApiDoc.Database
 {
@@ -19,6 +23,13 @@ namespace RestApiDoc.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var path = $@"{Directory.GetCurrentDirectory()}\Data\theory";
+            var options = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+                WriteIndented = true
+            };
+
             modelBuilder.Entity<Chapter>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -26,6 +37,10 @@ namespace RestApiDoc.Database
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                string text = File.ReadAllText($@"{path}\chapters.json");
+                var items = System.Text.Json.JsonSerializer.Deserialize<Chapter[]>(text, options);
+                entity.HasData(items);
             });
 
             modelBuilder.Entity<Partition>(entity =>
@@ -38,6 +53,10 @@ namespace RestApiDoc.Database
 
                 entity.Property(e => e.Text)
                     .IsRequired();
+
+                string text = File.ReadAllText($@"{path}\partitions.json");
+                var items = System.Text.Json.JsonSerializer.Deserialize<Partition[]>(text, options);
+                entity.HasData(items);
             });
 
             modelBuilder.Entity<Test>(entity =>
@@ -47,6 +66,10 @@ namespace RestApiDoc.Database
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                string text = File.ReadAllText($@"{path}\tests.json");
+                var items = System.Text.Json.JsonSerializer.Deserialize<Test[]>(text, options);
+                entity.HasData(items);
             });
 
             modelBuilder.Entity<Question>(entity =>
@@ -56,6 +79,10 @@ namespace RestApiDoc.Database
                 entity.Property(e => e.Text)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                string text = File.ReadAllText($@"{path}\questions.json");
+                var items = System.Text.Json.JsonSerializer.Deserialize<Question[]>(text, options);
+                entity.HasData(items);
             });
 
             modelBuilder.Entity<Answer>(entity =>
@@ -65,6 +92,10 @@ namespace RestApiDoc.Database
                 entity.Property(e => e.Text)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                string text = File.ReadAllText($@"{path}\answers.json");
+                var items = System.Text.Json.JsonSerializer.Deserialize<Answer[]>(text, options);
+                entity.HasData(items);
             });
 
             modelBuilder.Entity<User>(entity =>

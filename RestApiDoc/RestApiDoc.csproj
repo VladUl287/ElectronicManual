@@ -17,6 +17,11 @@
     <None Remove="Data\menu.png" />
     <None Remove="Data\puzzles\arhitektura.png" />
     <None Remove="Data\ReferenceInformation.chm" />
+    <None Remove="Data\theory\answers.json" />
+    <None Remove="Data\theory\chapters.json" />
+    <None Remove="Data\theory\partitions.json" />
+    <None Remove="Data\theory\questions.json" />
+    <None Remove="Data\theory\tests.json" />
     <None Remove="Data\underline.png" />
   </ItemGroup>
 
@@ -25,6 +30,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\ReferenceInformation.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\theory\answers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\theory\chapters.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\theory\partitions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\theory\questions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\theory\tests.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

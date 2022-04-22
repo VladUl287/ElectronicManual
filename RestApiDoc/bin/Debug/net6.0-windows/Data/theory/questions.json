@@ -1,0 +1,106 @@
+[
+    {
+      "Id": 1,
+      "QuestionType": 1,
+      "Text": "Какие альтернативы REST существуют?",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 2,
+      "QuestionType": 1,
+      "Text": "Какие форматы могут использоваться принципом REST",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 3,
+      "QuestionType": 0,
+      "Text": "Код сосотяния категории 2xx указывает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 4,
+      "QuestionType": 0,
+      "Text": "Код состояния категории 3xx указывает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 5,
+      "QuestionType": 2,
+      "Text": "Код состояния категории 4xx указывает на ошибки со стороны",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 6,
+      "QuestionType": 0,
+      "Text": "API - это",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 7,
+      "QuestionType": 0,
+      "Text": "HTTP - это",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 8,
+      "QuestionType": 0,
+      "Text": "REST - это",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 9,
+      "QuestionType": 1,
+      "Text": "Для чего используют REST API",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 10,
+      "QuestionType": 0,
+      "Text": "Код ответа 200 означает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 11,
+      "QuestionType": 2,
+      "Text": "Идентификатор для предоставления ресурса называется",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 12,
+      "QuestionType": 0,
+      "Text": "Кот ответа 404 означает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 14,
+      "QuestionType": 1,
+      "Text": "Какие из перечисленных принципов REST существуют",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    }
+  ]
