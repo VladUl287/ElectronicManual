@@ -2,8 +2,6 @@
 using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace RestApiDoc.ViewModels
@@ -74,16 +72,6 @@ namespace RestApiDoc.ViewModels
             {
                 chapters = value;
                 OnPropertyChanged("Chapters");
-            }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged is not null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
     }

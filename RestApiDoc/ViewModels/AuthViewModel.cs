@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
+using System.Linq;
 
 namespace RestApiDoc.ViewModels
 {
@@ -23,11 +24,11 @@ namespace RestApiDoc.ViewModels
         {
             get
             {
-                return loginCommand ??= new RelayCommand(async (_) =>
+                return loginCommand ??= new RelayCommand((_) =>
                 {
                     if (IsValid)
                     {
-                        AuthUser = await dbContext.Users.FirstOrDefaultAsync(e => e.Email == Email && e.Password == Password);
+                        AuthUser = dbContext.Users.FirstOrDefault(e => e.Email == Email && e.Password == Password);
                     }
                 });
             }

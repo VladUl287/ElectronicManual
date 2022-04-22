@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,7 +44,14 @@ namespace RestApiDoc.Controls
 
         private void CmbFontSize_TextChanged(object sender, TextChangedEventArgs e)
         {
-            rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, cmbFontSize.Text);
+            try
+            {
+                rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, cmbFontSize.Text);
+            }
+            catch (ArgumentException)
+            {
+
+            }
         }
 
         private void RtbEditor_TextChanged(object sender, TextChangedEventArgs e)

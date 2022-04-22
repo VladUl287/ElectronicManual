@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="InteractiveWindow" Height="600" Width="1000" Background="#2b373d">
+        Title="InteractiveWindow" Height="600" Width="1000" Background="#2b373d" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Canvas" x:Key="ImagePlacement">
             <Setter Property="Cursor" Value="Hand" />

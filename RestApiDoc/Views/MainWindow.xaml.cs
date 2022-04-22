@@ -23,6 +23,7 @@ namespace RestApiDoc
             if (e.PropertyName == "SelectedPartition" && mainViewModel.SelectedPartition is not null)
             {
                 SetRtfText(mainViewModel.SelectedPartition.Text);
+                mainViewModel.SelectedPartition = null;
             }
             if (e.PropertyName == "SelectedTest" && mainViewModel.SelectedTest is not null)
             {
@@ -77,6 +78,7 @@ namespace RestApiDoc
             else if (AuthViewModel.AuthUser.IsAdmin)
             {
                 IocService.Get<AdminWindow>()?.ShowDialog();
+                await mainViewModel.Initilize();
             }
         }
 
