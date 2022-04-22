@@ -336,3 +336,6 @@ C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Pages\AdminTestsPage.baml
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Pages\AdminUsersPage.g.cs
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Pages\AdminUsersPage.baml
+C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Views\InteractiveWindow.g.cs
+C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Views\InteractiveWindow.baml
+C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\puzzles\arhitektura.png

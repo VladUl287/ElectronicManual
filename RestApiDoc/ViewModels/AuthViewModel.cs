@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database;
+using RestApiDoc.Database.Models;
 
 namespace RestApiDoc.ViewModels
 {
@@ -12,7 +13,7 @@ namespace RestApiDoc.ViewModels
             this.dbContext = dbContext;
         }
 
-        public static bool IsAuth { get; private set; }
+        public static User? AuthUser { get; private set; }
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
 
@@ -26,13 +27,14 @@ namespace RestApiDoc.ViewModels
                 {
                     if (IsValid)
                     {
-                        IsAuth = await dbContext.Users.AnyAsync(e => e.Email == Email && e.Password == Password);
+                        AuthUser = await dbContext.Users.FirstOrDefaultAsync(e => e.Email == Email && e.Password == Password);
                     }
                 });
             }
         }
 
         private static readonly string[] ValidatedProperties = { "Email", "Password" };
+
         public bool IsValid
         {
             get

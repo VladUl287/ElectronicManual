@@ -6,7 +6,7 @@
         xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" x:Class="RestApiDoc.Views.TestsWindow"
         d:DataContext="{d:DesignInstance Type={x:Type viewmodels:MainViewModel}}"
         mc:Ignorable="d"
-        Title="TestsWindow" Height="560" Width="900" Background="#2b373d">
+        Title="TestsWindow" Height="600" Width="1000" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="#fff" />
@@ -18,11 +18,6 @@
         <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignAccentCheckBox}">
             <Setter Property="Foreground" Value="#fff" />
             <Setter Property="Margin" Value="5 0 5 0" />
-        </Style>
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="#00b4d8" />
-            <Setter Property="Foreground" Value="#fff" />
         </Style>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="BorderBrush" Value="#fff" />

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/puzzles/arhitektura.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/referenceinformation.chm")]
 
 

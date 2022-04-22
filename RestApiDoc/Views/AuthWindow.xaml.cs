@@ -17,7 +17,7 @@ namespace RestApiDoc.Views
         private void BtnAuth_Click(object sender, RoutedEventArgs e)
         {
             authViewModel.LoginCommand.Execute(null);
-            if (AuthViewModel.IsAuth)
+            if (AuthViewModel.AuthUser is not null)
             {
                 Close();
             }

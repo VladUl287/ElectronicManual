@@ -1,9 +1,9 @@
 ﻿<Window x:Class="RestApiDoc.Views.AuthWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" 
+        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewmodels:AuthViewModel}"
         mc:Ignorable="d"
         Title="AuthWindow" Width="400" Background="#2b373d" ResizeMode="NoResize">
@@ -19,20 +19,19 @@
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Foreground" Value="#fff" />
-            <Setter Property="Background" Value="#00b4d8" />
         </Style>
     </Window.Resources>
-    <Grid Grid.Column="0" Margin="20 0 20 20">
+    <Grid Margin="20 0 20 20">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackPanel>
+        <StackPanel Grid.Row="0">
             <Label Content="Email" />
-            <TextBox Text="{Binding Email}"/>
+            <TextBox Text="{Binding Email}" />
             <Label Content="Пароль" />
-            <TextBox Text="{Binding Password}"/>
+            <TextBox Text="{Binding Password}" />
         </StackPanel>
-        <Button Content="Войти" Click="BtnAuth_Click" Grid.Row="1"/>
+        <Button Content="Войти" Click="BtnAuth_Click" Grid.Row="1" />
     </Grid>
 </Window>

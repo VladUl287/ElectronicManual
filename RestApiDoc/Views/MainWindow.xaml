@@ -3,15 +3,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
+        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Padding" Value="3" />
-            <Setter Property="Margin" Value="6" />
+            <Setter Property="Margin" Value="3 6" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="#fff" />
             <Setter Property="Background" Value="Transparent" />
         </Style>
         <Style TargetType="Image">
@@ -35,15 +36,10 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
-            <Button Click="BtnSideBarToggle_Click">
-                <Image Source="/RestApiDoc;component/Data/icons/menu.png" />
-            </Button>
-            <Button Click="BtnHelp_Click">
-                <Image Source="/RestApiDoc;component/Data/icons/book_small.png" Width="22" Height=" 22" />
-            </Button>
-            <Button Click="BtnAdminWindow_Click">
-                <Image Source="/RestApiDoc;component/Data/icons/admin.png" />
-            </Button>
+            <Button Click="BtnSideBarToggle_Click" Content="{md:PackIcon Menu, Size=30}" />
+            <Button Click="BtnHelp_Click" Content="{md:PackIcon Book, Size=25}" />
+            <Button Click="BtnInteractive_Click" Content="{md:PackIcon Puzzle, Size=25}" />
+            <Button Click="BtnAdminWindow_Click" Content="{md:PackIcon User, Size=30}" />
         </StackPanel>
 
         <ScrollViewer x:Name="SideBarMenu"

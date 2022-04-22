@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
-using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace RestApiDoc.ViewModels

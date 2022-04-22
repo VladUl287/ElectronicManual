@@ -15,20 +15,18 @@
     <None Remove="Data\book_small.png" />
     <None Remove="Data\italics.png" />
     <None Remove="Data\menu.png" />
+    <None Remove="Data\puzzles\arhitektura.png" />
     <None Remove="Data\ReferenceInformation.chm" />
     <None Remove="Data\underline.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Data\puzzles\arhitektura.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\ReferenceInformation.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Data\icons\admin.png" />
-    <Resource Include="Data\icons\book_small.png" />
-    <Resource Include="Data\icons\menu.png" />
   </ItemGroup>
 
   <ItemGroup>

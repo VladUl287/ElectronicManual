@@ -3,15 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
-        d:DataContext="{d:DesignInstance Type=viewmodels:AdminViewModel}"
         mc:Ignorable="d"
         Title="CreateWindow" Height="600" Width="1000" Background="#2b373d">
     <Window.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="Margin" Value="0 0 10 0" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="#00b4d8" />
         </Style>
     </Window.Resources>
     <Grid>

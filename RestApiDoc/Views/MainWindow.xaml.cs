@@ -70,16 +70,19 @@ namespace RestApiDoc
 
         private async void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
         {
-            IocService.Get<AdminWindow>()?.ShowDialog();
-            await mainViewModel.Initilize();
-            //if (LoginViewModel.AuthUser is null)
-            //{
-            //    IocService.Get<AuthWindow>()?.ShowDialog();
-            //}
-            //else if(LoginViewModel.AuthUser.IsAdmin)
-            //{
-            //    IocService.Get<AdminWindow>()?.ShowDialog();
-            //}
+            if (AuthViewModel.AuthUser is null)
+            {
+                IocService.Get<AuthWindow>()?.ShowDialog();
+            }
+            else if (AuthViewModel.AuthUser.IsAdmin)
+            {
+                IocService.Get<AdminWindow>()?.ShowDialog();
+            }
+        }
+
+        private void BtnInteractive_Click(object sender, RoutedEventArgs e)
+        {
+            IocService.Get<InteractiveWindow>()?.ShowDialog();
         }
     }
 }
