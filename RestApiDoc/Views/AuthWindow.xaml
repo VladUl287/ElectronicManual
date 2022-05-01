@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance Type=viewmodels:AuthViewModel}"
         mc:Ignorable="d"
         Title="AuthWindow" Width="400" Height="250" Background="#2b373d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
@@ -12,15 +13,18 @@
             <Setter Property="Margin" Value="0 0 0 20" />
             <Setter Property="Foreground" Value="#fff" />
             <Setter Property="BorderBrush" Value="#fff" />
+            <Setter Property="md:TextFieldAssist.UnderlineBrush" Value="#fff"/>
         </Style>
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="#fff" />
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="#00b4d8" />
             <Setter Property="Foreground" Value="#fff" />
         </Style>
     </Window.Resources>
+
     <Grid Margin="20 0 20 20">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -28,7 +32,8 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Label Content="Email" />
-            <TextBox Text="{Binding Email}" />
+            <TextBox Text="{Binding Email}"/>
+
             <Label Content="Пароль" />
             <TextBox Text="{Binding Password}" />
         </StackPanel>

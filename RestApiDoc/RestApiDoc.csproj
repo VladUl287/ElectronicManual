@@ -21,6 +21,7 @@
     <None Remove="Data\theory\chapters.json" />
     <None Remove="Data\theory\partitions.json" />
     <None Remove="Data\theory\questions.json" />
+    <None Remove="Data\theory\rules.rtf" />
     <None Remove="Data\theory\tests.json" />
     <None Remove="Data\underline.png" />
   </ItemGroup>
@@ -44,13 +45,16 @@
     <Content Include="Data\theory\questions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\theory\rules.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\theory\tests.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.4.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>

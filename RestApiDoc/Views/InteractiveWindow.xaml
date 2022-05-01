@@ -14,6 +14,10 @@
             <EventSetter Event="Drop" Handler="PuzzleItemDrop" />
             <EventSetter Event="PreviewMouseLeftButtonDown" Handler="PuzzleItem_MouseLeftButtonDown" />
         </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="#00b4d8" />
+        </Style>
     </Window.Resources>
     <Grid>
 

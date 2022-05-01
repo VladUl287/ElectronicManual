@@ -338,9 +338,10 @@ C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Views\InteractiveWindow.g.cs
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Views\InteractiveWindow.baml
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\puzzles\arhitektura.png
-C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\chapters.json
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\partitions.json
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\questions.json
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\tests.json
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\answers.json
+C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\rules.rtf
+C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache

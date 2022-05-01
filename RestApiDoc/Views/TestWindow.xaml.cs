@@ -1,10 +1,12 @@
 ﻿using RestApiDoc.Database.Models;
 using RestApiDoc.ViewModels;
 using System;
+using System.IO;
 using System.Linq;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace RestApiDoc.Views
 {
@@ -47,7 +49,15 @@ namespace RestApiDoc.Views
             SetTime();
 
             timer.Elapsed += Timer_Elapsed;
-            timer.Start();
+
+            var fileInfo = new FileInfo($"{Directory.GetCurrentDirectory()}\\Data\\theory\\rules.rtf");
+            if (fileInfo.Exists)
+            {
+                var textRange = new TextRange(RulesTestRtf.Document.ContentStart, RulesTestRtf.Document.ContentEnd);
+
+                using var fileStream = new System.IO.FileStream(fileInfo.FullName, System.IO.FileMode.OpenOrCreate);
+                textRange.Load(fileStream, System.Windows.DataFormats.Rtf);
+            }
         }
 
         private void CreateQuestion(Question question)
@@ -169,7 +179,7 @@ namespace RestApiDoc.Views
 
             string msg = result < 3 ? "непройден" : "пройден";
             MessageBox.Show($"Тест {msg}. Правильных ответов {count}. " +
-                $"Ваша оценка {result}.", "Результат");
+                $"Ваша оценка {result}.", "Результат", MessageBoxButton.OK, MessageBoxImage.Information);
 
             Close();
         }
@@ -246,6 +256,14 @@ namespace RestApiDoc.Views
             catch
             {
             }
+        }
+
+        private void BtnTestStart_Click(object sender, RoutedEventArgs e)
+        {
+            PanelRules.Visibility = Visibility.Collapsed;
+            DockPanelTest.Visibility = Visibility.Visible;
+
+            timer.Start();
         }
     }
 }

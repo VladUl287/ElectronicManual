@@ -3,10 +3,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" x:Class="RestApiDoc.Views.TestsWindow"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance Type={x:Type viewmodels:MainViewModel}}"
         mc:Ignorable="d"
         Title="TestsWindow" Height="600" Width="1000" Background="#2b373d" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="#00b4d8" />
+        </Style>
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="#fff" />
         </Style>
@@ -22,18 +27,29 @@
             <Setter Property="BorderBrush" Value="#fff" />
             <Setter Property="Foreground" Value="#fff" />
             <Setter Property="Margin" Value="5 0 5 0" />
+            <Setter Property="md:TextFieldAssist.UnderlineBrush" Value="#fff"/>
         </Style>
     </Window.Resources>
-    <DockPanel>
-        <StatusBar DockPanel.Dock="Bottom">
-            <Label x:Name="lblTimeTest" Foreground="#000" />
-        </StatusBar>
-        <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <StackPanel x:Name="QuestionsPanel" Margin="15 5">
+    <Grid>
+        <Grid x:Name="PanelRules">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <RichTextBox x:Name="RulesTestRtf" Grid.Row="0" Foreground="#fff"/>
+            <Button Click="BtnTestStart_Click" Grid.Row="1" Margin="10">Начать тест</Button>
+        </Grid>
+        <DockPanel x:Name="DockPanelTest" Visibility="Collapsed">
+            <StatusBar DockPanel.Dock="Bottom">
+                <Label x:Name="lblTimeTest" Foreground="#000" />
+            </StatusBar>
+            <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <StackPanel x:Name="QuestionsPanel" Margin="15 5">
+                    </StackPanel>
+                    <Button Click="BtnResult_Click" Margin="15 5">Завершить</Button>
                 </StackPanel>
-                <Button Click="BtnResult_Click" Margin="15 5">Завершить</Button>
-            </StackPanel>
-        </ScrollViewer>
-    </DockPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
 </Window>

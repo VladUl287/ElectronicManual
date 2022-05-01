@@ -21,6 +21,11 @@ namespace RestApiDoc.Views
             {
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Некорректные данные!", "Ошибка авторизации", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

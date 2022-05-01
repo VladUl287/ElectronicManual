@@ -13,6 +13,6 @@
     <SourceRoot Include="C:\Users\User\.nuget\packages\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\User\.nuget\packages\materialdesignthemes\4.4.0</PkgMaterialDesignThemes>
+    <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\User\.nuget\packages\materialdesignthemes\4.5.0</PkgMaterialDesignThemes>
   </PropertyGroup>
 </Project>

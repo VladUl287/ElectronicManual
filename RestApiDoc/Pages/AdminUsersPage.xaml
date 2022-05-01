@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DataContext="{d:DesignInstance Type=viewmodels:UserViewModel}"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800">
@@ -11,6 +12,7 @@
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="Margin" Value="0 0 10 0" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="#00b4d8" />
         </Style>
     </Page.Resources>
     <Grid Background="Transparent">

@@ -104,7 +104,7 @@ namespace RestApiDoc.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/RestApiDoc;component/controls/richtextboxeditor.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/RestApiDoc;V1.0.0.0;component/controls/richtextboxeditor.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\RichTextBoxEditor.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
