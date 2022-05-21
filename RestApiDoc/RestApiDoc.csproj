@@ -21,6 +21,7 @@
     <None Remove="Data\theory\chapters.json" />
     <None Remove="Data\theory\partitions.json" />
     <None Remove="Data\theory\questions.json" />
+    <None Remove="Data\theory\restApiCreate.rtf" />
     <None Remove="Data\theory\rules.rtf" />
     <None Remove="Data\theory\tests.json" />
     <None Remove="Data\underline.png" />
@@ -43,6 +44,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\theory\questions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\theory\restApiCreate.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\theory\rules.rtf">

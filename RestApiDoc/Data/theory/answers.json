@@ -320,5 +320,173 @@
         "IsRight": false,
         "QuestionId": 14,
         "Question": null
+    },
+    {
+        "Id": 51,
+        "Text": "что запрос клиента был успешно получен, понят, и принят",
+        "IsRight": false,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 52,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 53,
+        "Text": "нет контента",
+        "IsRight": true,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 54,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 55,
+        "Text": "авторизован",
+        "IsRight": false,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 56,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 57,
+        "Text": "неавторизован",
+        "IsRight": true,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 58,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 59,
+        "Text": "что запрос клиента был успешно получен, понят, и принят",
+        "IsRight": false,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 60,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 61,
+        "Text": "запрещено",
+        "IsRight": true,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 62,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 63,
+        "Text": "в 2015",
+        "IsRight": false,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 64,
+        "Text": "в 2001",
+        "IsRight": false,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 65,
+        "Text": "в 2000",
+        "IsRight": true,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 66,
+        "Text": "в 1999",
+        "IsRight": false,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 67,
+        "Text": "Роем Филдингом",
+        "IsRight": false,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 68,
+        "Text": "Джеймсом Рихтером",
+        "IsRight": false,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 69,
+        "Text": "Гвидо ван Россумом",
+        "IsRight": true,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 70,
+        "Text": "Джоном Скитом",
+        "IsRight": false,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 71,
+        "Text": "конечная точка",
+        "IsRight": true,
+        "QuestionId": 20,
+        "Question": null
+    },
+    {
+        "Id": 72,
+        "Text": "заголовки",
+        "IsRight": true,
+        "QuestionId": 20,
+        "Question": null
+    },
+    {
+        "Id": 73,
+        "Text": "тело",
+        "IsRight": true,
+        "QuestionId": 20,
+        "Question": null
+    },
+    {
+        "Id": 74,
+        "Text": "формат данных",
+        "IsRight": false,
+        "QuestionId": 20,
+        "Question": null
     }
 ]

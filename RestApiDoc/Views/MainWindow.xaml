@@ -6,7 +6,7 @@
         xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="Разработка REST Api" Height="600" Width="1000" Background="#2b373d" WindowStartupLocation="CenterScreen">
+        Title="Разработка REST Api" Height="600" Width="1000" Background="#2b373d" WindowStartupLocation="CenterScreen" Initialized="Window_Initialized">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Padding" Value="3" />

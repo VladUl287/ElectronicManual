@@ -14,6 +14,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/theory/chapters.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/theory/partitions.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/theory/questions.json")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/theory/restapicreate.rtf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/theory/rules.rtf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/theory/tests.json")]
 

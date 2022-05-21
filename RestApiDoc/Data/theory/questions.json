@@ -102,5 +102,53 @@
       "TestId": 1,
       "Test": null,
       "Answers": []
+    },
+    {
+      "Id": 15,
+      "QuestionType": 0,
+      "Text": "Код ответа 204 означает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 16,
+      "QuestionType": 0,
+      "Text": "Код ответа 401 означает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 17,
+      "QuestionType": 0,
+      "Text": "Код ответа 403 означает",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 18,
+      "QuestionType": 0,
+      "Text": "В каком году появилось понятие REST",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 19,
+      "QuestionType": 0,
+      "Text": "Кем было введено понятие Rest",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
+    },
+    {
+      "Id": 20,
+      "QuestionType": 1,
+      "Text": "Запросы к API состоят из:",
+      "TestId": 1,
+      "Test": null,
+      "Answers": []
     }
   ]

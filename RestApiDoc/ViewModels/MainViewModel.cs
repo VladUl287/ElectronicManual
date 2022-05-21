@@ -2,7 +2,11 @@
 using RestApiDoc.Database;
 using RestApiDoc.Database.Models;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestApiDoc.ViewModels
 {
@@ -18,8 +22,6 @@ namespace RestApiDoc.ViewModels
         public MainViewModel(DatabaseContext dbContext)
         {
             this.dbContext = dbContext;
-
-            Initilize();
         }
 
         public async Task Initilize()

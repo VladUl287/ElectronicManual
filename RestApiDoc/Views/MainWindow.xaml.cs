@@ -12,9 +12,9 @@ namespace RestApiDoc
 
         public MainWindow(MainViewModel mainViewModel)
         {
+            this.mainViewModel = mainViewModel;
             InitializeComponent();
             DataContext = mainViewModel;
-            this.mainViewModel = mainViewModel;
             mainViewModel.PropertyChanged += ChapterViewModel_PropertyChanged;
         }
 
@@ -65,8 +65,14 @@ namespace RestApiDoc
 
         private void SetRtfText(string rtf)
         {
-            var stream = new MemoryStream(Encoding.Default.GetBytes(rtf));
-            PartitionTextRtb.Selection.Load(stream, DataFormats.Rtf);
+            try
+            {
+                var stream = new MemoryStream(Encoding.Default.GetBytes(rtf));
+                PartitionTextRtb.Selection.Load(stream, DataFormats.Rtf);
+            }
+            catch
+            {
+            }
         }
 
         private async void BtnAdminWindow_Click(object sender, RoutedEventArgs e)
@@ -85,6 +91,11 @@ namespace RestApiDoc
         private void BtnInteractive_Click(object sender, RoutedEventArgs e)
         {
             IocService.Get<InteractiveWindow>()?.ShowDialog();
+        }
+
+        private async void Window_Initialized(object sender, System.EventArgs e)
+        {
+            await mainViewModel.Initilize();
         }
     }
 }
