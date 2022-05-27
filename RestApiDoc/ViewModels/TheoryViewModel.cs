@@ -12,6 +12,7 @@ namespace RestApiDoc.ViewModels
 
         public TheoryViewModel(DatabaseContext dbContext) : base(dbContext)
         {
+            Initilize();
         }
 
         public Question NewQuestion

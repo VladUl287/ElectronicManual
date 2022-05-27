@@ -1,0 +1,492 @@
+[
+    {
+        "Id": 1,
+        "Text": "gRPC",
+        "IsRight": true,
+        "QuestionId": 1,
+        "Question": null
+    },
+    {
+        "Id": 2,
+        "Text": "SQL",
+        "IsRight": false,
+        "QuestionId": 1,
+        "Question": null
+    },
+    {
+        "Id": 3,
+        "Text": "GraphQL",
+        "IsRight": true,
+        "QuestionId": 1,
+        "Question": null
+    },
+    {
+        "Id": 4,
+        "Text": "HTTP",
+        "IsRight": false,
+        "QuestionId": 1,
+        "Question": null
+    },
+    {
+        "Id": 5,
+        "Text": "XML",
+        "IsRight": true,
+        "QuestionId": 2,
+        "Question": null
+    },
+    {
+        "Id": 6,
+        "Text": "TXT",
+        "IsRight": false,
+        "QuestionId": 2,
+        "Question": null
+    },
+    {
+        "Id": 7,
+        "Text": "JSON",
+        "IsRight": true,
+        "QuestionId": 2,
+        "Question": null
+    },
+    {
+        "Id": 8,
+        "Text": "ASCII",
+        "IsRight": false,
+        "QuestionId": 2,
+        "Question": null
+    },
+    {
+        "Id": 9,
+        "Text": "что запрос клиента был успешно получен, понят, и принят",
+        "IsRight": true,
+        "QuestionId": 3,
+        "Question": null
+    },
+    {
+        "Id": 10,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 3,
+        "Question": null
+    },
+    {
+        "Id": 11,
+        "Text": "ошибки со стороны клиента",
+        "IsRight": false,
+        "QuestionId": 3,
+        "Question": null
+    },
+    {
+        "Id": 12,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 3,
+        "Question": null
+    },
+    {
+        "Id": 13,
+        "Text": "что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 4,
+        "Question": null
+    },
+    {
+        "Id": 14,
+        "Text": "об ошибках со стороны клиента",
+        "IsRight": false,
+        "QuestionId": 4,
+        "Question": null
+    },
+    {
+        "Id": 15,
+        "Text": "что запрос клиента был успешно получен, понят, и принят",
+        "IsRight": false,
+        "QuestionId": 4,
+        "Question": null
+    },
+    {
+        "Id": 16,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 4,
+        "Question": null
+    },
+    {
+        "Id": 17,
+        "Text": "клиента",
+        "IsRight": false,
+        "QuestionId": 5,
+        "Question": null
+    },
+    {
+        "Id": 18,
+        "Text": "описание способов, которыми одна компьютерная программа может взаимодействовать с другой программой",
+        "IsRight": true,
+        "QuestionId": 6,
+        "Question": null
+    },
+    {
+        "Id": 19,
+        "Text": "протокол межсервисного взаимодействия",
+        "IsRight": false,
+        "QuestionId": 6,
+        "Question": null
+    },
+    {
+        "Id": 20,
+        "Text": " протокол прикладного уровня передачи данных",
+        "IsRight": false,
+        "QuestionId": 6,
+        "Question": null
+    },
+    {
+        "Id": 21,
+        "Text": "система удалённого вызова процедур",
+        "IsRight": false,
+        "QuestionId": 6,
+        "Question": null
+    },
+    {
+        "Id": 22,
+        "Text": "протокол прикладного уровня передачи данных",
+        "IsRight": true,
+        "QuestionId": 7,
+        "Question": null
+    },
+    {
+        "Id": 23,
+        "Text": "версия интернет-протокола",
+        "IsRight": false,
+        "QuestionId": 7,
+        "Question": null
+    },
+    {
+        "Id": 24,
+        "Text": "азвание программного интерфейса для обеспечения обмена данными между процессами",
+        "IsRight": false,
+        "QuestionId": 7,
+        "Question": null
+    },
+    {
+        "Id": 25,
+        "Text": "система, обеспечивающая обмен данными между вычислительными устройствами",
+        "IsRight": false,
+        "QuestionId": 7,
+        "Question": null
+    },
+    {
+        "Id": 26,
+        "Text": "технология позволяет получать и модифицировать данные и состояния удаленных приложений, передавая HTTP-вызовы через интернет или любую другую сеть",
+        "IsRight": true,
+        "QuestionId": 8,
+        "Question": null
+    },
+    {
+        "Id": 27,
+        "Text": "система, обеспечивающая обмен данными между вычислительными устройствами",
+        "IsRight": false,
+        "QuestionId": 8,
+        "Question": null
+    },
+    {
+        "Id": 28,
+        "Text": "протокол передачи состояния",
+        "IsRight": false,
+        "QuestionId": 8,
+        "Question": null
+    },
+    {
+        "Id": 29,
+        "Text": "семейство технологий пакетной передачи данных между устройствами для компьютерных и промышленных сетей",
+        "IsRight": false,
+        "QuestionId": 8,
+        "Question": null
+    },
+    {
+        "Id": 30,
+        "Text": "для связи мобильных приложений с серверными",
+        "IsRight": true,
+        "QuestionId": 9,
+        "Question": null
+    },
+    {
+        "Id": 31,
+        "Text": "для построения микросервисных серверных приложений",
+        "IsRight": true,
+        "QuestionId": 9,
+        "Question": null
+    },
+    {
+        "Id": 32,
+        "Text": "для предоставления доступа к программам сторонних разработчиков",
+        "IsRight": true,
+        "QuestionId": 9,
+        "Question": null
+    },
+    {
+        "Id": 33,
+        "Text": "для обеспечения обмена данными между процессами",
+        "IsRight": false,
+        "QuestionId": 9,
+        "Question": null
+    },
+    {
+        "Id": 34,
+        "Text": "хорошо",
+        "IsRight": true,
+        "QuestionId": 10,
+        "Question": null
+    },
+    {
+        "Id": 35,
+        "Text": "идёт обработка",
+        "IsRight": false,
+        "QuestionId": 10,
+        "Question": null
+    },
+    {
+        "Id": 36,
+        "Text": "множество выборов",
+        "IsRight": false,
+        "QuestionId": 10,
+        "Question": null
+    },
+    {
+        "Id": 37,
+        "Text": "некорректный запрос",
+        "IsRight": false,
+        "QuestionId": 10,
+        "Question": null
+    },
+    {
+        "Id": 38,
+        "Text": "url",
+        "IsRight": false,
+        "QuestionId": 11,
+        "Question": null
+    },
+    {
+        "Id": 39,
+        "Text": "не найдено",
+        "IsRight": true,
+        "QuestionId": 12,
+        "Question": null
+    },
+    {
+        "Id": 40,
+        "Text": "не изменялось",
+        "IsRight": false,
+        "QuestionId": 12,
+        "Question": null
+    },
+    {
+        "Id": 41,
+        "Text": "идёт обработка",
+        "IsRight": false,
+        "QuestionId": 12,
+        "Question": null
+    },
+    {
+        "Id": 42,
+        "Text": "не авторизован",
+        "IsRight": false,
+        "QuestionId": 12,
+        "Question": null
+    },
+    {
+        "Id": 47,
+        "Text": "Отделения клиента от сервера",
+        "IsRight": true,
+        "QuestionId": 14,
+        "Question": null
+    },
+    {
+        "Id": 48,
+        "Text": "Монолитность",
+        "IsRight": false,
+        "QuestionId": 14,
+        "Question": null
+    },
+    {
+        "Id": 49,
+        "Text": "Кэшируемость",
+        "IsRight": true,
+        "QuestionId": 14,
+        "Question": null
+    },
+    {
+        "Id": 50,
+        "Text": "Опозноваемость",
+        "IsRight": false,
+        "QuestionId": 14,
+        "Question": null
+    },
+    {
+        "Id": 51,
+        "Text": "что запрос клиента был успешно получен, понят, и принят",
+        "IsRight": false,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 52,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 53,
+        "Text": "нет контента",
+        "IsRight": true,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 54,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 15,
+        "Question": null
+    },
+    {
+        "Id": 55,
+        "Text": "авторизован",
+        "IsRight": false,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 56,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 57,
+        "Text": "неавторизован",
+        "IsRight": true,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 58,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 16,
+        "Question": null
+    },
+    {
+        "Id": 59,
+        "Text": "что запрос клиента был успешно получен, понят, и принят",
+        "IsRight": false,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 60,
+        "Text": " что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI",
+        "IsRight": false,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 61,
+        "Text": "запрещено",
+        "IsRight": true,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 62,
+        "Text": "что сервер знает, что произошла ошибка или он не может обработать запрос",
+        "IsRight": false,
+        "QuestionId": 17,
+        "Question": null
+    },
+    {
+        "Id": 63,
+        "Text": "в 2015",
+        "IsRight": false,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 64,
+        "Text": "в 2001",
+        "IsRight": false,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 65,
+        "Text": "в 2000",
+        "IsRight": true,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 66,
+        "Text": "в 1999",
+        "IsRight": false,
+        "QuestionId": 18,
+        "Question": null
+    },
+    {
+        "Id": 67,
+        "Text": "Роем Филдингом",
+        "IsRight": false,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 68,
+        "Text": "Джеймсом Рихтером",
+        "IsRight": false,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 69,
+        "Text": "Гвидо ван Россумом",
+        "IsRight": true,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 70,
+        "Text": "Джоном Скитом",
+        "IsRight": false,
+        "QuestionId": 19,
+        "Question": null
+    },
+    {
+        "Id": 71,
+        "Text": "конечная точка",
+        "IsRight": true,
+        "QuestionId": 20,
+        "Question": null
+    },
+    {
+        "Id": 72,
+        "Text": "заголовки",
+        "IsRight": true,
+        "QuestionId": 20,
+        "Question": null
+    },
+    {
+        "Id": 73,
+        "Text": "тело",
+        "IsRight": true,
+        "QuestionId": 20,
+        "Question": null
+    },
+    {
+        "Id": 74,
+        "Text": "формат данных",
+        "IsRight": false,
+        "QuestionId": 20,
+        "Question": null
+    }
+]
