@@ -3,12 +3,14 @@ using RestApiDoc.Views;
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace RestApiDoc
 {
     public partial class MainWindow : Window
     {
         private readonly MainViewModel mainViewModel;
+        private static double ActualFontSize = 20;
 
         public MainWindow(MainViewModel mainViewModel)
         {
@@ -24,6 +26,8 @@ namespace RestApiDoc
             {
                 SetRtfText(mainViewModel.SelectedPartition.Text);
                 mainViewModel.SelectedPartition = null;
+                var range = new TextRange(PartitionTextRtb.Selection.Start, PartitionTextRtb.Selection.End);
+                range.ApplyPropertyValue(TextElement.FontSizeProperty, ActualFontSize);
             }
             if (e.PropertyName == "SelectedTest" && mainViewModel.SelectedTest is not null)
             {
@@ -96,6 +100,33 @@ namespace RestApiDoc
         private async void Window_Initialized(object sender, System.EventArgs e)
         {
             await mainViewModel.Initilize();
+            DataLoading.Visibility = Visibility.Collapsed;
+        }
+
+        private void BtnLessFontSize_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActualFontSize < 15)
+            {
+                return;
+            }
+
+            ActualFontSize--;
+
+            var range = new TextRange(PartitionTextRtb.Selection.Start, PartitionTextRtb.Selection.End);
+            range.ApplyPropertyValue(TextElement.FontSizeProperty, ActualFontSize);
+        }
+
+        private void BtnIncreaseFontSize_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActualFontSize > 40)
+            {
+                return;
+            }
+
+            ActualFontSize++;
+
+            var range = new TextRange(PartitionTextRtb.Selection.Start, PartitionTextRtb.Selection.End);
+            range.ApplyPropertyValue(TextElement.FontSizeProperty, ActualFontSize);
         }
     }
 }

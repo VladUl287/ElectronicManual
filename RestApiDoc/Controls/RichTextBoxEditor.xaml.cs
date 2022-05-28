@@ -11,17 +11,18 @@ namespace RestApiDoc.Controls
     public partial class RichTextBoxEditor : UserControl
     {
         public string Rtf { get; private set; }
+        private static readonly int[] FontSizes = new[] { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
         public RichTextBoxEditor()
         {
             InitializeComponent();
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies;
-            cmbFontSize.ItemsSource = new[] { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+            cmbFontSize.ItemsSource = FontSizes;
         }
 
         private void RtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            object temp = rtbEditor.Selection.GetPropertyValue(TextElement.FontWeightProperty);
+            var temp = rtbEditor.Selection.GetPropertyValue(TextElement.FontWeightProperty);
             btnBold.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold));
             temp = rtbEditor.Selection.GetPropertyValue(TextElement.FontStyleProperty);
             btnItalic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
@@ -70,8 +71,9 @@ namespace RestApiDoc.Controls
 
         public void SetRtf(string text)
         {
-            var stream = new MemoryStream(Encoding.Default.GetBytes(text));
-            rtbEditor.Selection.Load(stream, DataFormats.Rtf);
+            using var stream = new MemoryStream(Encoding.Default.GetBytes(text));
+            var range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+            range.Load(stream, DataFormats.Rtf);
         }
     }
 }

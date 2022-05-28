@@ -4,26 +4,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels="clr-namespace:RestApiDoc.ViewModels" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
         Title="Разработка REST Api" Height="600" Width="1000" Background="#2b373d" WindowStartupLocation="CenterScreen" Initialized="Window_Initialized">
     <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Padding" Value="3" />
-            <Setter Property="Margin" Value="3 6" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Foreground" Value="#fff" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style TargetType="Image">
-            <Setter Property="Width" Value="28" />
-            <Setter Property="Height" Value="28" />
-        </Style>
-        <Style TargetType="RichTextBox">
-            <Setter Property="IsReadOnly" Value="True" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="#ced4da" />
-        </Style>
+        <ResourceDictionary Source="/RestApiDoc;component/Styles/MainDictionary.xaml" />
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -35,59 +21,68 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
             <Button Click="BtnSideBarToggle_Click" Content="{md:PackIcon Menu, Size=30}" />
             <Button Click="BtnHelp_Click" Content="{md:PackIcon Book, Size=25}" />
             <Button Click="BtnInteractive_Click" Content="{md:PackIcon Puzzle, Size=25}" />
             <Button Click="BtnAdminWindow_Click" Content="{md:PackIcon User, Size=30}" />
-        </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Padding="5" Margin="3 10" Height="28" Content="{md:PackIcon Minus}" Background="#00b4d8" Click="BtnLessFontSize_Click"/>
+                <Button Padding="5" Margin="3 10" Height="28" Content="{md:PackIcon Plus}" Background="#00b4d8" Click="BtnIncreaseFontSize_Click"/>
+            </StackPanel>
+        </DockPanel>
 
-        <ScrollViewer x:Name="SideBarMenu"
-                      Grid.Row="1"
-                      Grid.Column="0"
+        <Grid x:Name="DataLoading" Grid.Row="1" Grid.ColumnSpan="2" Panel.ZIndex="1">
+            <fa:ImageAwesome />
+        </Grid>
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <ScrollViewer x:Name="SideBarMenu" DockPanel.Dock="Left" 
                       HorizontalAlignment="Stretch"
                       HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto">
-            <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListViewItem}">
-                        <Setter Property="Padding" Value="0"></Setter>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Expander IsExpanded="False" HorizontalAlignment="Left" MinWidth="350" MaxWidth="350" Background="{x:Null}" Foreground="#fff">
-                            <Expander.Header>
-                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" />
-                            </Expander.Header>
-                            <StackPanel>
-                                <ListView Foreground="#fff"
+                <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding SelectedChapter}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="{Binding Name}" />
+                                </Expander.Header>
+                                <StackPanel>
+                                    <ListView Foreground="#fff"
                                           ItemsSource="{Binding Partitions}"
                                           SelectedItem="{Binding Path=DataContext.SelectedPartition, Mode=TwoWay,
                                             RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" Padding="15 5 0 5"  TextWrapping="Wrap" />
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                                <ListView Foreground="#fff"
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" Padding="15 5 0 5" />
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                    <ListView Foreground="#fff"
                                           ItemsSource="{Binding Tests}"
                                           SelectedItem="{Binding Path=DataContext.SelectedTest,RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Name}" Padding="15 5 0 5"  TextWrapping="Wrap" />
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </StackPanel>
-                        </Expander>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>
-        <RichTextBox x:Name="PartitionTextRtb" Grid.Row="1" Grid.Column="1" />
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" Padding="15 5 0 5" />
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Expander>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+            <Grid Background="#ced4da">
+                <RichTextBox x:Name="PartitionTextRtb" Margin="10"/>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>

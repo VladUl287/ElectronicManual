@@ -15,8 +15,6 @@ namespace RestApiDoc.ViewModels
         public UserViewModel(DatabaseContext databaseContext)
         {
             dbContext = databaseContext;
-
-            Initilize();
         }
 
         public async Task Initilize()

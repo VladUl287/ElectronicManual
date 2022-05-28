@@ -1,12 +1,16 @@
 ﻿using RestApiDoc.Database.Models;
 using RestApiDoc.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Media;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RestApiDoc.Views
 {
@@ -16,6 +20,7 @@ namespace RestApiDoc.Views
         private readonly Question[] questions;
         private static readonly Random random = new();
         private readonly Timer timer = new(1000);
+        private static readonly SolidColorBrush solidColorBrush = new(Color.FromRgb(255, 255, 255));
 
         public TestsWindow(MainViewModel mainViewModel)
         {
@@ -28,7 +33,7 @@ namespace RestApiDoc.Views
 
             for (int i = 0; i < questions.Length; i++)
             {
-                CreateQuestion(questions[i]);
+                CreateQuestion(questions[i], i);
 
                 switch (questions[i].QuestionType)
                 {
@@ -60,7 +65,7 @@ namespace RestApiDoc.Views
             }
         }
 
-        private void CreateQuestion(Question question)
+        private void CreateQuestion(Question question, int index)
         {
             var stackPanel = new StackPanel
             {
@@ -70,7 +75,7 @@ namespace RestApiDoc.Views
 
             var label = new Label
             {
-                Content = question.Text
+                Content = $"{++index}) {question.Text}"
             };
 
             stackPanel.Children.Add(label);
@@ -98,8 +103,13 @@ namespace RestApiDoc.Views
                         var check = new CheckBox
                         {
                             DataContext = answers[i],
-                            Content = answers[i].Text
+                            Content = new TextBlock
+                            {
+                                Text = answers[i].Text,
+                                TextWrapping = TextWrapping.Wrap
+                            }
                         };
+                        check.Resources.Add("MaterialDesignCheckBoxOff", solidColorBrush);
 
                         check.Checked += CkAnswer_CheckedChanged;
                         check.Unchecked += CkAnswer_UnCheckedChanged;
@@ -114,8 +124,13 @@ namespace RestApiDoc.Views
                         var radio = new RadioButton
                         {
                             DataContext = answers[i],
-                            Content = answers[i].Text
+                            Content = new TextBlock
+                            {
+                                Text = answers[i].Text,
+                                TextWrapping = TextWrapping.Wrap
+                            }
                         };
+                        radio.Resources.Add("MaterialDesignCheckBoxOff", solidColorBrush);
 
                         radio.Checked += RbAnswer_CheckedChanged;
 
@@ -251,7 +266,7 @@ namespace RestApiDoc.Views
                 var textBox = ((TextBox)sender);
                 var question = (Question)((StackPanel)((TextBox)sender).Parent).DataContext;
 
-                question.IsRight = question.Answers.FirstOrDefault()?.Text == textBox.Text;
+                question.IsRight = question.Answers.FirstOrDefault()?.Text == textBox.Text.ToLower();
             }
             catch
             {
@@ -264,6 +279,31 @@ namespace RestApiDoc.Views
             DockPanelTest.Visibility = Visibility.Visible;
 
             timer.Start();
+        }
+
+        private static int ActualFontSize = 12;
+        private void BtnLessFontSize_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActualFontSize < 9)
+            {
+                return;
+            }
+
+            ActualFontSize--;
+
+            FontSize = ActualFontSize;
+        }
+
+        private void BtnIncreaseFontSize_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActualFontSize > 21)
+            {
+                return;
+            }
+
+            ActualFontSize++;
+
+            FontSize = ActualFontSize;
         }
     }
 }

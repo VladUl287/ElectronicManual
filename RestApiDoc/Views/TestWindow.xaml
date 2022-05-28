@@ -36,19 +36,26 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <RichTextBox x:Name="RulesTestRtf" Grid.Row="0" Foreground="#fff"/>
+            <Grid>
+                <RichTextBox x:Name="RulesTestRtf" Grid.Row="0" IsReadOnly="True" BorderThickness="0" Foreground="#fff" Margin="10"/>
+            </Grid>
             <Button Click="BtnTestStart_Click" Grid.Row="1" Margin="10">Начать тест</Button>
         </Grid>
         <DockPanel x:Name="DockPanelTest" Visibility="Collapsed">
             <StatusBar DockPanel.Dock="Bottom">
-                <Label x:Name="lblTimeTest" Foreground="#000" />
+                <StatusBarItem DockPanel.Dock="Left">
+                    <Label x:Name="lblTimeTest" Foreground="#000" />
+                </StatusBarItem>
+                <StatusBarItem DockPanel.Dock="Right" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Click="BtnResult_Click">Завершить</Button>
+                        <Button Padding="5" Margin="5 0" Content="{md:PackIcon Minus}" Click="BtnLessFontSize_Click"/>
+                        <Button Padding="5" Content="{md:PackIcon Plus}" Click="BtnIncreaseFontSize_Click"/>
+                    </StackPanel>
+                </StatusBarItem>
             </StatusBar>
             <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <StackPanel>
-                    <StackPanel x:Name="QuestionsPanel" Margin="15 5">
-                    </StackPanel>
-                    <Button Click="BtnResult_Click" Margin="15 5">Завершить</Button>
-                </StackPanel>
+                <StackPanel x:Name="QuestionsPanel" Margin="10 5"></StackPanel>
             </ScrollViewer>
         </DockPanel>
     </Grid>

@@ -117,8 +117,7 @@
 
                 <TextBox Text="{Binding SelectedPartition.Name, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
                 <controls:RichTextBoxEditor x:Name="partitionText" Grid.Row="1" Grid.Column="1" />
-                <StackPanel
-                                    Grid.Row="2"
+                <StackPanel Grid.Row="2"
                                     Grid.Column="1"
                                     Orientation="Horizontal"
                                     HorizontalAlignment="Right">

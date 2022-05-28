@@ -11,6 +11,7 @@ namespace RestApiDoc.Database
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOpt) : base(dbContextOpt)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Chapter> Chapters { get; init; }
@@ -20,7 +21,7 @@ namespace RestApiDoc.Database
         public DbSet<Question> Questions { get; init; }
         public DbSet<Answer> Answers { get; init; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override async void OnModelCreating(ModelBuilder modelBuilder)
         {
             var path = $@"{Directory.GetCurrentDirectory()}\Data\theory";
             var options = new JsonSerializerOptions

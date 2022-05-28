@@ -4,6 +4,7 @@ using RestApiDoc.Database;
 using RestApiDoc.Pages;
 using RestApiDoc.ViewModels;
 using RestApiDoc.Views;
+using System.Diagnostics;
 using System.Windows;
 
 namespace RestApiDoc
@@ -30,10 +31,10 @@ namespace RestApiDoc
             services.AddTransient<AuthWindow>();
             services.AddTransient<InteractiveWindow>();
 
+            services.AddSingleton<AuthViewModel>();
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<TheoryViewModel>();
             services.AddSingleton<UserViewModel>();
-            services.AddSingleton<AuthViewModel>();
 
             services.AddSingleton<AdminChaptersPage>();
             services.AddSingleton<AdminTestsPage>();
@@ -42,6 +43,19 @@ namespace RestApiDoc
 
         private void OnStartup(object sender, StartupEventArgs e)
         {
+            int pid = System.Environment.ProcessId;
+            string pname = Process.GetCurrentProcess().ProcessName;
+            Process[] processes = Process.GetProcesses();
+            for (int i = 0; i < processes.Length; i++)
+            {
+                var p = processes[i];
+                if (p.ProcessName == pname && p.Id != pid)
+                {
+                    Current.Shutdown();
+                    return;
+                }
+            }
+
             IocService.Get<MainWindow>()?.Show();
         }
     }
