@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApiDoc.Database.Models;
 using System.IO;
+using System.Linq;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
@@ -39,7 +40,7 @@ namespace RestApiDoc.Database
                     .HasMaxLength(255);
 
                 string text = File.ReadAllText($@"{path}\chapters.json");
-                var items = System.Text.Json.JsonSerializer.Deserialize<Chapter[]>(text, options);
+                var items = JsonSerializer.Deserialize<Chapter[]>(text, options);
                 entity.HasData(items);
             });
 
@@ -55,7 +56,7 @@ namespace RestApiDoc.Database
                     .IsRequired();
 
                 string text = File.ReadAllText($@"{path}\partitions.json");
-                var items = System.Text.Json.JsonSerializer.Deserialize<Partition[]>(text, options);
+                var items = JsonSerializer.Deserialize<Partition[]>(text, options)?.ToList();
                 entity.HasData(items);
             });
 
@@ -68,7 +69,7 @@ namespace RestApiDoc.Database
                     .HasMaxLength(255);
 
                 string text = File.ReadAllText($@"{path}\tests.json");
-                var items = System.Text.Json.JsonSerializer.Deserialize<Test[]>(text, options);
+                var items = JsonSerializer.Deserialize<Test[]>(text, options);
                 entity.HasData(items);
             });
 
@@ -81,7 +82,7 @@ namespace RestApiDoc.Database
                     .HasMaxLength(255);
 
                 string text = File.ReadAllText($@"{path}\questions.json");
-                var items = System.Text.Json.JsonSerializer.Deserialize<Question[]>(text, options);
+                var items = JsonSerializer.Deserialize<Question[]>(text, options);
                 entity.HasData(items);
             });
 
@@ -94,7 +95,7 @@ namespace RestApiDoc.Database
                     .HasMaxLength(255);
 
                 string text = File.ReadAllText($@"{path}\answers.json");
-                var items = System.Text.Json.JsonSerializer.Deserialize<Answer[]>(text, options);
+                var items = JsonSerializer.Deserialize<Answer[]>(text, options);
                 entity.HasData(items);
             });
 

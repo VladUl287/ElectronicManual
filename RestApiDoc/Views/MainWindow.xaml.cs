@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Documents;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RestApiDoc
 {

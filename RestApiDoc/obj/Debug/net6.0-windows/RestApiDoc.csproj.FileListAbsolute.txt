@@ -347,3 +347,4 @@ C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\Data\theory\restApiCreate.rtf
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
 C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\Styles\MainDictionary.baml
+C:\Users\User\Downloads\Диплом\ElectronicManual\RestApiDoc\obj\Debug\net6.0-windows\RestApiDoc.csproj.AssemblyReference.cache

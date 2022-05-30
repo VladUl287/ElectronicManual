@@ -71,9 +71,17 @@ namespace RestApiDoc.Controls
 
         public void SetRtf(string text)
         {
-            using var stream = new MemoryStream(Encoding.Default.GetBytes(text));
-            var range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-            range.Load(stream, DataFormats.Rtf);
+            try
+            {
+                rtbEditor.Document.Blocks.Clear();
+                using var stream = new MemoryStream(Encoding.Default.GetBytes(text));
+                var range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+                range.Load(stream, DataFormats.Rtf);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

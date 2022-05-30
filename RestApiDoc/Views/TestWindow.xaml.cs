@@ -105,7 +105,7 @@ namespace RestApiDoc.Views
                             DataContext = answers[i],
                             Content = new TextBlock
                             {
-                                Text = answers[i].Text,
+                                Text = answers[i].Text.Trim(),
                                 TextWrapping = TextWrapping.Wrap
                             }
                         };
@@ -126,7 +126,7 @@ namespace RestApiDoc.Views
                             DataContext = answers[i],
                             Content = new TextBlock
                             {
-                                Text = answers[i].Text,
+                                Text = answers[i].Text.Trim(),
                                 TextWrapping = TextWrapping.Wrap
                             }
                         };

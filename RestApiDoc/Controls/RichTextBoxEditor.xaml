@@ -56,7 +56,7 @@
                 </ComboBox>
             </ToolBar>
             <Grid Background="#ced4da">
-                <RichTextBox Name="rtbEditor" Margin="10" BorderThickness="0" SelectionChanged="RtbEditor_SelectionChanged" TextChanged="RtbEditor_TextChanged" />
+                <RichTextBox Name="rtbEditor" Margin="10" Foreground="#000" BorderThickness="0" SelectionChanged="RtbEditor_SelectionChanged" TextChanged="RtbEditor_TextChanged" />
             </Grid>
         </DockPanel>
     </Grid>
